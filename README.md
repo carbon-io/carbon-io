@@ -1,4 +1,9 @@
 carbon.io
+==========
+
+***
+
+Contents
 ----------
 
 * [Getting started](doc/GettingStarted.md)
