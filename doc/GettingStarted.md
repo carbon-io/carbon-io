@@ -60,27 +60,6 @@ __(function() {
 })
 ```
 
-```node 
-var carbon = require('carbon-io')
-var o = carbon.atom.o(module)
-var __ = carbon.atom.__(module, true)
-
-__(function() {
-  module.exports = o({
-    _type: carbon.carbond.ObjectServer,
-    port: 8888,
-    endpoints: {
-      hello: o({
-        _type: carbon.carbond.Endpoint,
-        get: function(req) {
-          return { msg: "Hello World!" }
-        }
-      })
-    }
-  })
-})
-```
-
 ### Running the API
 
 ```console
