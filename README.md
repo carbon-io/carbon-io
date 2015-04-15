@@ -1,4 +1,4 @@
-carbon io
+carbon.io
 ----------
 
 * [Getting started](doc/GettingStarted.md)
