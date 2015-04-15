@@ -9,7 +9,7 @@ lkhasd alkhlkj lkdsldkaj daksdjwq;djwcksnd a'
   * [Creating your first API](doc/GettingStarted.md#creating-the-api)
   * [Running the API](doc/GettingStarted.md#running-the-api)
   * [Connecting to the API](doc/GettingStarted.md#connecting-to-the-api)
-  * [More examples](doc/GettingStarted.md#more-examples)
+* [Examples](doc/GettingStarted.md#more-examples)
 * User guide
   * Installing 
   * Overview
