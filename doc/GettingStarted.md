@@ -92,7 +92,7 @@ __(function() {
 
 command help
 ```console
-% node <path-to-your-app>/HelloService
+% node <path-to-your-app>/HelloService -h
 Usage: node HelloService [options]
 
 Options:
