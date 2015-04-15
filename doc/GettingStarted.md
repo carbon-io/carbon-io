@@ -83,6 +83,18 @@ __(function() {
 
 ### Running the API
 
+Getting help
+```console
+% node <path-to-your-app>/HelloService
+Usage: node HelloService [options]
+
+Options:
+   -p PORT, --port PORT                  port
+   -v VERBOSITY, --verbosity VERBOSITY   verbosity level (trace | debug | info | warn | error | fatal)
+   --root-secret-key ROOT_SECRET_KEY     root secret key
+```
+
+Actually running the service
 ```console
 % node <path-to-your-app>/HelloService
 [Mon Feb 09 2015 21:56:41 GMT-0800 (PST)] INFO: ObjectServer starting...
