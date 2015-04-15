@@ -18,7 +18,7 @@ Your package.json should include ```datanode```
     "description": "Hello World API",
     "engines": { "node": "~0.8.6" },
     "dependencies": {
-        "datanode" : "> 0.0.0"
+        "carbon-io" : "> 0.1.0"
     }
 }
 ```
@@ -40,16 +40,17 @@ Next we define the API. This is where the magic is. Create a file called HelloSe
 
 HelloService.js
 ```node
-var o = require('maker').o(module)
-var __ = require('maker').__(module, true)
+var carbon = require('carbon-io')
+var o = carbon.atom.o(module)
+var __ = carbon.atom.__(module, true)
 
 __(function() {
   module.exports = o({
-    _type: 'datanode/ObjectServer',
+    _type: carbon.carbond.ObjectServer,
     port: 8888,
     endpoints: {
       hello: o({
-        _type: 'datanode/Endpoint',
+        _type: carbon.carbond.Endpoint,
         get: function(req) {
           return { msg: "Hello World!" }
         }
@@ -60,10 +61,9 @@ __(function() {
 ```
 
 ```node 
-var carbon = require('carbon')
+var carbon = require('carbon-io')
 var o = carbon.atom.o(module)
-var _o = carbon.bond._o(module)
-var __ = carbon.fibers.__(module, true)
+var __ = carbon.atom.__(module, true)
 
 __(function() {
   module.exports = o({
@@ -84,10 +84,10 @@ __(function() {
 ### Running the API
 
 ```console
-% node HelloService.js
+% node <path-to-your-app>/HelloService
 [Mon Feb 09 2015 21:56:41 GMT-0800 (PST)] INFO: ObjectServer starting...
 [Mon Feb 09 2015 21:56:41 GMT-0800 (PST)] INFO: ObjectServer listening on port 8888
-[Mon Feb 09 2015 21:56:41 GMT-0800 (PST)] INFO: ObjectServer running
+[Mon Feb 09 2015 21:56:41 GMT-0800 (PST)] INFO: ObjectServer started
 ```
 
 ### Connecting to the API
@@ -110,4 +110,4 @@ In your web browser navigate to [http://localhost:8888/apidoc](http://localhost:
 
 ### More examples
 
-Studying examples is a great way to learn. We have an entire [github repository full of runnable examples](https://github.com/willshulman/datanode-examples) to explore. 
+Studying examples is a great way to learn. We have an entire [github repository full of runnable examples](https://github.com/carbon-io/examples) to explore. 
