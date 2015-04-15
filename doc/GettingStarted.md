@@ -83,7 +83,14 @@ __(function() {
 
 ### Running the API
 
-Getting help
+```console
+% node <path-to-your-app>/HelloService
+[Mon Feb 09 2015 21:56:41 GMT-0800 (PST)] INFO: ObjectServer starting...
+[Mon Feb 09 2015 21:56:41 GMT-0800 (PST)] INFO: ObjectServer listening on port 8888
+[Mon Feb 09 2015 21:56:41 GMT-0800 (PST)] INFO: ObjectServer started
+```
+
+command help
 ```console
 % node <path-to-your-app>/HelloService
 Usage: node HelloService [options]
@@ -93,15 +100,6 @@ Options:
    -v VERBOSITY, --verbosity VERBOSITY   verbosity level (trace | debug | info | warn | error | fatal)
    --root-secret-key ROOT_SECRET_KEY     root secret key
 ```
-
-Actually running the service
-```console
-% node <path-to-your-app>/HelloService
-[Mon Feb 09 2015 21:56:41 GMT-0800 (PST)] INFO: ObjectServer starting...
-[Mon Feb 09 2015 21:56:41 GMT-0800 (PST)] INFO: ObjectServer listening on port 8888
-[Mon Feb 09 2015 21:56:41 GMT-0800 (PST)] INFO: ObjectServer started
-```
-
 ### Connecting to the API
 
 You now have a RESTful web service running on port 8888. You can connect to it via HTTP in a variety of ways. 
