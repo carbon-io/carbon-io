@@ -14,13 +14,12 @@ lkhasd alkhlkj lkdsldkaj daksdjwq;djwcksnd a'
   * Installing 
   * Overview
     * Design philosophy 
-  * Core components
+  * Fundamental technologies
     * Atom
     * Fibers
     * Leafnode 
     * JSON Schema
     * Swagger
-    * carbond
   * [carbond] (https://github.com/carbon-io/carbond)
   * [ObjectServer](doc/classes/ObjectServer.md)
     * Databases
