@@ -22,7 +22,7 @@ lkhasd alkhlkj lkdsldkaj daksdjwq;djwcksnd a'
     * Swagger
   * [carbond] (https://github.com/carbon-io/carbond)
   * [carbonc] (https://github.com/carbon-io/carbonc)
-  * [carbonshell] (https://github.com/carbon-io/carbon-shell)
+  * [carbon-shell] (https://github.com/carbon-io/carbon-shell)
   * [ObjectServer](doc/classes/ObjectServer.md)
     * Databases
     * [Endpoints](doc/classes/Endpoint.md)
