@@ -7,7 +7,7 @@ Carbon.io is an application framework based on Node.js and MongoDB for building 
 Contents
 -------
 
-* [Getting started](doc/GettingStarted.md)
+* [Quick start](doc/GettingStarted.md)
   * [Creating your first API](doc/GettingStarted.md#creating-the-api)
   * [Running the API](doc/GettingStarted.md#running-the-api)
   * [Connecting to the API](doc/GettingStarted.md#connecting-to-the-api)
