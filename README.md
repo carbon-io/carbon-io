@@ -17,7 +17,7 @@ Contents
   * [Creating your first API](doc/GettingStarted.md#creating-the-api)
   * [Running the API](doc/GettingStarted.md#running-the-api)
   * [Connecting to the API](doc/GettingStarted.md#connecting-to-the-api)
-* [Examples](https://github.com/carbon-io/examples)
+* [More examples](https://github.com/carbon-io/examples)
 * User guide
   * Installing 
   * Overview
