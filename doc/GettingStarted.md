@@ -10,7 +10,7 @@ The first step is to create a standard Node.js package
     package.json
 ```
 
-Your package.json should include ```datanode```
+Your package.json should include ```carbon-io```
 
 ```node
 {
