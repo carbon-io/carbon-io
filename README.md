@@ -2,8 +2,11 @@ carbon.io
 ==========
 ***
 
-lkhdkjhsad alkhda kldh alkdha dkjha ldkjha  lkdj asdkaj sdlak 
-lkhasd alkhlkj lkdsldkaj daksdjwq;djwcksnd a'
+Carbon.io is an application framework for building RESTful microservices and APIs based on Node.js and MongoDB. 
+
+Summary of features
+* yo
+* uo
 
 * [Getting started](doc/GettingStarted.md)
   * [Creating your first API](doc/GettingStarted.md#creating-the-api)
