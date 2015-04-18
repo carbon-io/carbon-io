@@ -60,27 +60,6 @@ __(function() {
 })
 ```
 
-```node 
-var carbon = require('carbon-io')
-var o = carbon.atom.o(module)
-var __ = carbon.atom.__(module, true)
-
-__(function() {
-  module.exports = o({
-    _type: carbon.carbond.ObjectServer,
-    port: 8888,
-    endpoints: {
-      hello: o({
-        _type: carbon.carbond.Endpoint,
-        get: function(req) {
-          return { msg: "Hello World!" }
-        }
-      })
-    }
-  })
-})
-```
-
 ### Running the API
 
 ```console
@@ -90,6 +69,16 @@ __(function() {
 [Mon Feb 09 2015 21:56:41 GMT-0800 (PST)] INFO: ObjectServer started
 ```
 
+command help
+```console
+% node <path-to-your-app>/HelloService -h
+Usage: node HelloService [options]
+
+Options:
+   -p PORT, --port PORT                  port
+   -v VERBOSITY, --verbosity VERBOSITY   verbosity level (trace | debug | info | warn | error | fatal)
+   --root-secret-key ROOT_SECRET_KEY     root secret key
+```
 ### Connecting to the API
 
 You now have a RESTful web service running on port 8888. You can connect to it via HTTP in a variety of ways. 
