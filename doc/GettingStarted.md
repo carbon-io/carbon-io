@@ -42,7 +42,7 @@ HelloService.js
 ```node
 var carbon = require('carbon-io')
 var o = carbon.atom.o(module)
-var __ = carbon.atom.__(module, true)
+var __ = carbon.fiber.__(module, true)
 
 __(function() {
   module.exports = o({
