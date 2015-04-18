@@ -14,28 +14,14 @@ lkhasd alkhlkj lkdsldkaj daksdjwq;djwcksnd a'
   * Installing 
   * Overview
     * Design philosophy 
-  * Core components
-    * Maker
+  * Fundamental technologies
+    * Atom
     * Fibers
-    * Leafnode MongoDB driver
-    * Express
+    * Leafnode 
     * JSON Schema
     * Swagger
-  * [ObjectServer](doc/classes/ObjectServer.md)
-    * Databases
-    * [Endpoints](doc/classes/Endpoint.md)
-    * Basic endpoint types
-    * Security
-      * [Authentication](doc/Authentication.md)
-      * [Access Control](doc/AccessControl.md)
-      * [Security strategies](doc/SecurityStrategies.md)
-  * Running a datanode
-  * Auto-generated interactive API documentation (API Explorer)
-  * Logging
-  * Error handling
-  * Production best-practices
-  * Class reference
-    * ObjectServer
-    * Endpoint
-    * Authenticator
+  * [carbond] (https://github.com/carbon-io/carbond)
+  * [carbonc] (https://github.com/carbon-io/carbonc)
+  * [carbon-shell] (https://github.com/carbon-io/carbon-shell)
+  
 
