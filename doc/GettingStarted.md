@@ -41,7 +41,7 @@ Next we define the API. This is where the magic is. Create a file called HelloSe
 HelloService.js
 ```node
 var carbon = require('carbon-io')
-var o = carbon.atom.o(module)
+var o  = carbon.atom.o(module)
 var __ = carbon.fiber.__(module, true)
 
 __(function() {
