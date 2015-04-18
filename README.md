@@ -15,12 +15,13 @@ lkhasd alkhlkj lkdsldkaj daksdjwq;djwcksnd a'
   * Overview
     * Design philosophy 
   * Core components
-    * Maker
+    * Atom
     * Fibers
-    * Leafnode MongoDB driver
-    * Express
+    * Leafnode 
     * JSON Schema
     * Swagger
+    * carbond
+  * [carbond] (https://github.com/carbon-io/carbond)
   * [ObjectServer](doc/classes/ObjectServer.md)
     * Databases
     * [Endpoints](doc/classes/Endpoint.md)
