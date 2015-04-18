@@ -21,6 +21,8 @@ lkhasd alkhlkj lkdsldkaj daksdjwq;djwcksnd a'
     * JSON Schema
     * Swagger
   * [carbond] (https://github.com/carbon-io/carbond)
+  * [carbonc] (https://github.com/carbon-io/carbonc)
+  * [carbonshell] (https://github.com/carbon-io/carbon-shell)
   * [ObjectServer](doc/classes/ObjectServer.md)
     * Databases
     * [Endpoints](doc/classes/Endpoint.md)
