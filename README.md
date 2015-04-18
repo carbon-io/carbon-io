@@ -6,6 +6,8 @@ Carbon.io is an application framework based on Node.js and MongoDB for building 
 
 Carbon.io strives to make the simple cases easy and the complex cases possible. With Carbon.io you can create simple, database-centric, APIs with virtually no code. At the same time Carbon.io is designed to let you under the hood and allows you to write highly customized APIs much like you would with lower-level libraries such as Express.js. 
 
+Carbon.io has a highly declarative and modular style that is different from most application programming frameworks and that is quite fun to code in. 
+
 Carbon.io is easy to learn. We recommend starting with the [Quick start](doc/GettingStarted.md) guide and then trying out some of the many examples in our [examples repository](https://github.com/carbon-io/examples). Then dive into the [user guide]() to learn more advanced concepts.
 
 Contents
