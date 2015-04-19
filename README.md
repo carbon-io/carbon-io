@@ -35,7 +35,7 @@ Contents
   * [carbon-shell] (https://github.com/carbon-io/carbon-shell)
   
 
-Getting started (Hello World)
+Quick start (Hello World)
 ----------
 
 ### Creating your first API
