@@ -20,9 +20,12 @@ Contents
 * [More examples](https://github.com/carbon-io/examples)
 * User guides
   * [carbond] (https://github.com/carbon-io/carbond)
-  * [carbonc] (https://github.com/carbon-io/carbonc)
-  * [carbon-client] (https://github.com/carbon-io/carbonc)
+  * [carbon-client] (https://github.com/carbon-io/carbon-client)
   * [carbon-shell] (https://github.com/carbon-io/carbon-shell)
+  * [atom] (https://github.com/carbon-io/atom)
+  * [bond] (https://github.com/carbon-io/bond)
+  * [leafnode] (https://github.com/carbon-io/leafnode)
+
 
 
 * Installing 
