@@ -18,8 +18,15 @@ Contents
   * [Running the API](doc/GettingStarted.md#running-the-api)
   * [Connecting to the API](doc/GettingStarted.md#connecting-to-the-api)
 * [More examples](https://github.com/carbon-io/examples)
-* User guide
-  * Installing 
+* User guides
+  * [carbond] (https://github.com/carbon-io/carbond)
+  * [carbonc] (https://github.com/carbon-io/carbonc)
+  * [carbon-client] (https://github.com/carbon-io/carbonc)
+  * [carbon-shell] (https://github.com/carbon-io/carbon-shell)
+  
+
+
+* Installing 
   * Overview
     * Design philosophy 
   * Fundamental technologies
@@ -29,10 +36,7 @@ Contents
     * Leafnode 
     * JSON Schema
     * Swagger
-  * [carbond] (https://github.com/carbon-io/carbond)
-  * [carbonc] (https://github.com/carbon-io/carbonc)
-  * [carbon-client] (https://github.com/carbon-io/carbonc)
-  * [carbon-shell] (https://github.com/carbon-io/carbon-shell)
+ 
   
 
 Quick start (Hello World)
