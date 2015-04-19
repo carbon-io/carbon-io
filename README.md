@@ -23,7 +23,6 @@ Contents
   * [carbonc] (https://github.com/carbon-io/carbonc)
   * [carbon-client] (https://github.com/carbon-io/carbonc)
   * [carbon-shell] (https://github.com/carbon-io/carbon-shell)
-  
 
 
 * Installing 
