@@ -68,7 +68,7 @@ Your package.json should include ```carbon-io```
 
 Then install the package dependencies like this:
 
-```
+```console
 % cd <path-to-your-app>
 % npm install .
 ```
