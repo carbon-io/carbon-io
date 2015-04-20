@@ -53,7 +53,7 @@ The first step is to create a standard Node.js package
     package.json
 ```
 
-Your package.json should include ```carbon-io```
+Your ```package.json``` file should include ```carbon-io```
 
 ```node
 {
