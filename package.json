@@ -18,8 +18,9 @@
   "engines": { "node": ">= 0.5.2" },
   "dependencies" : {
     "atom": "git+ssh://git@github.com:carbon-io/atom.git",
-    "carbond": "git+ssh://git@github.com:carbon-io/carbond.git",
-    "fiber": "git+ssh://git@github.com:carbon-io/fiber.git"
+    "bond": "git+ssh://git@github.com:carbon-io/bond.git",
+    "fiber": "git+ssh://git@github.com:carbon-io/fiber.git",
+    "carbond": "git+ssh://git@github.com:carbon-io/carbond.git"
   },
   "preferGlobal": false
 }
