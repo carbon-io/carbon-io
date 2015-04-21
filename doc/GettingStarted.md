@@ -10,7 +10,7 @@ The first step is to create a standard Node.js package
     package.json
 ```
 
-Your package.json should include ```datanode```
+Your package.json should include ```carbon-io```
 
 ```node
 {
@@ -41,8 +41,8 @@ Next we define the API. This is where the magic is. Create a file called HelloSe
 HelloService.js
 ```node
 var carbon = require('carbon-io')
-var o = carbon.atom.o(module)
-var __ = carbon.atom.__(module, true)
+var o  = carbon.atom.o(module)
+var __ = carbon.fiber.__(module, true)
 
 __(function() {
   module.exports = o({
