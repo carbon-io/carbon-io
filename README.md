@@ -42,7 +42,7 @@ Contents
  
 | property      | description     | type  | default |
 | :------------ |:----------------| :-----| :-----  |
-| col 3 is      | some wordy text | $1600 |
+| port          | Http port server will listen on | number | 8888 |
 | col 2 is      | centered        |   $12 |
 | zebra stripes | are neat        |    $1 |
 
