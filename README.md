@@ -39,13 +39,6 @@ Contents
     * JSON Schema
     * Swagger
  
- 
-| property      | description     | type  | default |
-| :------------ |:----------------| :-----| :-----  |
-| ```port```    | Http port server will listen on | number | 8888 |
-| ```verbosity```  | Verbosity level (trace \| debug \| info \| warn \| error \| fatal) | string | "info" |
-| ```endpoints```  | This is is is si a very long description kjh jkh kjdha kjdha sjdha skdjhas dkjahsd akjshd dhskajhdsh | object | {} |
-| ```port```          | Http port server will listen on | number | 8888 |
 
 Quick start (Hello World)
 ----------
@@ -150,3 +143,12 @@ In your web browser navigate to [http://localhost:8888/apidoc](http://localhost:
 
 Studying examples is a great way to learn. We have an entire [github repository full of runnable examples](https://github.com/carbon-io/examples) to explore. 
 
+
+OTHER STUFF
+--------
+| property      | description     | type  | default |
+| :------------ |:----------------| :-----| :-----  |
+| ```port```    | Http port server will listen on | number | 8888 |
+| ```verbosity```  | Verbosity level (trace \| debug \| info \| warn \| error \| fatal) | string | "info" |
+| ```endpoints```  | This is is is si a very long description kjh jkh kjdha kjdha sjdha skdjhas dkjahsd akjshd dhskajhdsh | object | {} |
+| ```port```          | Http port server will listen on | number | 8888 |
