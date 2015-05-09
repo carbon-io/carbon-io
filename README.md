@@ -39,6 +39,17 @@ __(function() {
 })
 ```
 
+Carbon.io also takes care of a lot of the common infrastructure one commonly has to implement when building an API, such as:
+
+* Logging
+* Proper HTTP error handling
+* Authentication and access control
+* Application configuration and bootstrapping
+* Building robust command-line interfaces
+* JSON-Schema validation
+* API documentation (auto-generated)
+* 
+
 Carbon.io has a highly declarative and modular style that is different from most application programming frameworks and that is quite fun to code in. 
 
 Carbon.io is easy to learn. We recommend starting with the [Quick start](doc/GettingStarted.md) guide and then trying out some of the many examples in our [examples repository](https://github.com/carbon-io/examples). Then dive into the [user guide]() to learn more advanced concepts.
