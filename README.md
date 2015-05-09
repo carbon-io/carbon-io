@@ -199,9 +199,9 @@ User guides
 Design philosophy
 ----------
 
-_TBD_
+_TODO_
 
 FAQ
 ----------
 
-_TBD_
+_TODO_
