@@ -4,7 +4,40 @@ Carbon.io
 
 Carbon.io is an application framework based on Node.js and MongoDB for building command line programs, microservices, and APIs.
 
-Carbon.io strives to make the simple cases easy and the complex cases possible. With Carbon.io you can create simple, database-centric, APIs with virtually no code. At the same time Carbon.io is designed to let you under the hood and allows you to write highly customized APIs much like you would with lower-level libraries such as Express.js. 
+Carbon.io strives to make the simple cases easy and the complex cases possible. With Carbon.io you can create simple, database-centric, microservices with virtually no code. At the same time Carbon.io is designed to let you under the hood and allows you to write highly customized APIs much like you would with lower-level libraries such as Express.js. 
+
+```
+__(function() {
+  module.exports = o({
+    _type: carbon.carbond.ObjectServer,
+    port: 8888,
+    endpoints: {
+      zipcodes: o({
+        _type: carbon.carbond.MongoDBCollection,
+        collection: 'zipcodes'
+      })
+    }
+  })
+})
+```
+
+```
+__(function() {
+  module.exports = o({
+    _type: carbon.carbond.ObjectServer,
+    port: 8888,
+    endpoints: {
+      zipcodes: o({
+        _type: carbon.carbond.Endpoint,
+        get: function(req) {
+          // connect to legacy COBOL program from 1987 using some crazy library
+          // written by some guy in Belarus 
+        }
+      })
+    }
+  })
+})
+```
 
 Carbon.io has a highly declarative and modular style that is different from most application programming frameworks and that is quite fun to code in. 
 
