@@ -4,6 +4,41 @@ Carbon.io
 
 Carbon.io is an application framework based on Node.js and MongoDB for building command line programs, microservices, and APIs.
 
+Contents
+-------
+
+* [Overview](#overview)
+* [Quick start](doc/GettingStarted.md)
+  * [Creating your first API](doc/GettingStarted.md#creating-the-api)
+  * [Running the API](doc/GettingStarted.md#running-the-api)
+  * [Connecting to the API](doc/GettingStarted.md#connecting-to-the-api)
+* [More examples](https://github.com/carbon-io/examples)
+* User guides
+  * [carbond] (https://github.com/carbon-io/carbond)
+  * [carbon-client] (https://github.com/carbon-io/carbon-client)
+  * [carbon-shell] (https://github.com/carbon-io/carbon-shell)
+  * [atom] (https://github.com/carbon-io/atom)
+  * [bond] (https://github.com/carbon-io/bond)
+  * [leafnode] (https://github.com/carbon-io/leafnode)
+
+
+
+* Installing 
+  * Overview
+    * Design philosophy 
+  * Fundamental technologies
+    * Atom
+    * Bond
+    * Fiber / node-fibers
+    * Leafnode 
+    * JSON Schema
+    * Swagger
+ 
+Overview
+----------
+
+Carbon.io is an application framework based on Node.js and MongoDB for building command line programs, microservices, and APIs.
+
 Carbon.io strives to make the simple cases easy and the complex cases possible. With Carbon.io you can create simple, database-centric, microservices with virtually no code. At the same time Carbon.io is designed to let you under the hood and allows you to write highly customized APIs much like you would with lower-level libraries such as Express.js. 
 
 For instance, this example creates a full CRUD API for single MongoDB collection consisting of six REST endpoints with 'no code': 
@@ -57,36 +92,6 @@ In addition to helping you build endpoints, Carbon.io also takes care of a lot o
 * API documentation (auto-generated)
 
 Carbon.io has a highly declarative and modular style that is different from most application programming frameworks and that is quite fun to code in and easy to learn. We recommend starting with the [Quick start](doc/GettingStarted.md) guide and then trying out some of the many examples in our [examples repository](https://github.com/carbon-io/examples). Then dive into the [user guide]() to learn more advanced concepts.
-
-Contents
--------
-
-* [Quick start](doc/GettingStarted.md)
-  * [Creating your first API](doc/GettingStarted.md#creating-the-api)
-  * [Running the API](doc/GettingStarted.md#running-the-api)
-  * [Connecting to the API](doc/GettingStarted.md#connecting-to-the-api)
-* [More examples](https://github.com/carbon-io/examples)
-* User guides
-  * [carbond] (https://github.com/carbon-io/carbond)
-  * [carbon-client] (https://github.com/carbon-io/carbon-client)
-  * [carbon-shell] (https://github.com/carbon-io/carbon-shell)
-  * [atom] (https://github.com/carbon-io/atom)
-  * [bond] (https://github.com/carbon-io/bond)
-  * [leafnode] (https://github.com/carbon-io/leafnode)
-
-
-
-* Installing 
-  * Overview
-    * Design philosophy 
-  * Fundamental technologies
-    * Atom
-    * Bond
-    * Fiber / node-fibers
-    * Leafnode 
-    * JSON Schema
-    * Swagger
- 
 
 Quick start (Hello World)
 ----------
