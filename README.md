@@ -13,7 +13,7 @@ Contents
   * [Running the API](doc/GettingStarted.md#running-the-api)
   * [Connecting to the API](doc/GettingStarted.md#connecting-to-the-api)
 * [Carbon.io example repository](https://github.com/carbon-io/examples)
-* User guides
+* [User guides](#user-guides)
   * [carbond] (https://github.com/carbon-io/carbond): The server component of Carbon.io. This is how you build APIs and microservices.
   * [carbon-client] (https://github.com/carbon-io/carbon-client): The client component to Carbon.io. This is how you talk to APIs and microservices.
   * [carbon-shell] (https://github.com/carbon-io/carbon-shell): A command-line shell you can use to connect to and interact with Carbond servers.
@@ -186,3 +186,5 @@ Carbon.io example repository
 
 Studying examples is a great way to learn. We have an entire [github repository full of runnable examples](https://github.com/carbon-io/examples) to explore. 
 
+User guides
+----------
