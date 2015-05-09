@@ -17,9 +17,10 @@ Contents
   * [carbond] (https://github.com/carbon-io/carbond): The server component of Carbon.io. This is how you build APIs and microservices.
   * [carbon-client] (https://github.com/carbon-io/carbon-client): The client component to Carbon.io. This is how you talk to APIs and microservices.
   * [carbon-shell] (https://github.com/carbon-io/carbon-shell): A command-line shell you can use to connect to and interact with Carbond servers.
-  * [atom] (https://github.com/carbon-io/atom): The core component framework upon which Carbon.io is built.
-  * [bond] (https://github.com/carbon-io/bond): The Carbon.io name resolver.
-  * [leafnode] (https://github.com/carbon-io/leafnode): A hybrid syncronous / asynchronous MongoDB driver interface (wraps the [node-mongodb-native](https://github.com/mongodb/node-mongodb-native) driver). 
+  * [atom](https://github.com/carbon-io/atom): The core component framework upon which Carbon.io is built.
+  * [bond](https://github.com/carbon-io/bond): The Carbon.io name resolver.
+  * [fiber]:(https://github.com/carbon-io/fiber): The Carbon.io interface to [Node Fibers](https://github.com/laverdet/node-fibers) used for synchronous control flow. 
+  * [leafnode](https://github.com/carbon-io/leafnode): A hybrid syncronous / asynchronous MongoDB driver interface (wraps the [node-mongodb-native](https://github.com/mongodb/node-mongodb-native) driver). 
 * Design philosophy
 * FAQ
  
