@@ -12,7 +12,7 @@ Contents
   * [Creating your first API](doc/GettingStarted.md#creating-the-api)
   * [Running the API](doc/GettingStarted.md#running-the-api)
   * [Connecting to the API](doc/GettingStarted.md#connecting-to-the-api)
-* [More examples](https://github.com/carbon-io/examples)
+* [Carbon.io examples](https://github.com/carbon-io/examples)
 * User guides
   * [carbond] (https://github.com/carbon-io/carbond): The server component of Carbon.io. This is how you build APIs and microservices.
   * [carbon-client] (https://github.com/carbon-io/carbon-client): The client component to Carbon.io. This is how you talk to APIs and microservices.
@@ -181,7 +181,8 @@ In your web browser navigate to [http://localhost:8888/apidoc](http://localhost:
 
 ![HelloService](doc/hello-service.png)
 
-### More examples
+Carbon.io examples
+----------
 
 Studying examples is a great way to learn. We have an entire [github repository full of runnable examples](https://github.com/carbon-io/examples) to explore. 
 
