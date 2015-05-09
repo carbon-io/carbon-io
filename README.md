@@ -106,7 +106,6 @@ Your ```package.json``` file should include ```carbon-io```
 {
     "name": "hello-world",
     "description": "Hello World API",
-    "engines": { "node": "~0.8.6" },
     "dependencies": {
         "carbon-io" : "> 0.1.0"
     }
