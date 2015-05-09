@@ -34,7 +34,7 @@ __(function() {
         _type: carbon.carbond.Endpoint,
         get: function(req, res) {
           // connect to legacy COBOL program from 1987 using some crazy library
-          // written by some guy in Belarus 
+          // written by a guy in Belarus 
         },
         post: function(req, res) {
           ...
