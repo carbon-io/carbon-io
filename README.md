@@ -20,19 +20,8 @@ Contents
   * [atom] (https://github.com/carbon-io/atom)
   * [bond] (https://github.com/carbon-io/bond)
   * [leafnode] (https://github.com/carbon-io/leafnode)
-
-
-
-* Installing 
-  * Overview
-    * Design philosophy 
-  * Fundamental technologies
-    * Atom
-    * Bond
-    * Fiber / node-fibers
-    * Leafnode 
-    * JSON Schema
-    * Swagger
+* Design philosophy
+* FAQ
  
 Overview
 ----------
