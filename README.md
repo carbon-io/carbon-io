@@ -83,7 +83,7 @@ In addition to helping you build endpoints, Carbon.io also takes care of a lot o
 
 Carbon.io has a highly declarative and modular style that is different from most application programming frameworks and that is quite fun to code in and easy to learn. We recommend starting with the [Quick start](doc/GettingStarted.md) guide and then trying out some of the many examples in our [examples repository](https://github.com/carbon-io/examples). Then dive into the [user guide]() to learn more advanced concepts.
 
-Quick start (Hello World)
+Quick start (Hello world)
 ----------
 
 ### Creating your first API
@@ -136,7 +136,7 @@ __(function() {
       hello: o({
         _type: carbon.carbond.Endpoint,
         get: function(req) {
-          return { msg: "Hello World!" }
+          return { msg: "Hello world!" }
         }
       })
     }
@@ -171,7 +171,7 @@ You now have a RESTful web service running on port 8888. You can connect to it v
 
 ```console
 % curl localhost:8888/hello
-{ "msg": "Hello World!" }
+{ "msg": "Hello world!" }
 %
 ```
 
