@@ -160,8 +160,7 @@ Usage: node HelloService [options]
 
 Options:
    -p PORT, --port PORT                  port
-   -v VERBOSITY, --verbosity VERBOSITY   verbosity level (trace | debug | info | warn | error | fatal)
-   --root-secret-key ROOT_SECRET_KEY     root secret key
+   -v VERBOSITY, --verbosity VERBOSITY   verbosity level (trace | debug | info | warn | error)
 ```
 ### Connecting to the API
 
@@ -188,7 +187,7 @@ Studying examples is a great way to learn. We have an entire [github repository 
 
 User guides
 ----------
-* [carbond] (https://github.com/carbon-io/carbond): The server component of Carbon.io. This is how you build APIs and microservices.
+* [carbond] (https://github.com/carbon-io/carbond): The server component of Carbon.io. This is how you build APIs and microservices. Start here.
 * [carbon-client] (https://github.com/carbon-io/carbon-client): The client component to Carbon.io. This is how you talk to APIs and microservices.
 * [carbon-shell] (https://github.com/carbon-io/carbon-shell): A command-line shell you can use to connect to and interact with Carbond servers.
 * [atom](https://github.com/carbon-io/atom): The core component framework upon which Carbon.io is built.
