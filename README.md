@@ -18,7 +18,7 @@ Contents
   * [atom](https://github.com/carbon-io/atom): The core component framework upon which Carbon.io is built.
   * [bond](https://github.com/carbon-io/bond): The Carbon.io name resolver.
   * [fiber](https://github.com/carbon-io/fiber): The Carbon.io interface to [Node Fibers](https://github.com/laverdet/node-fibers) used for synchronous control flow. 
-  * [leafnode](https://github.com/carbon-io/leafnode): A hybrid synchronous / asynchronous MongoDB driver interface (wraps the [node-mongodb-native](https://github.com/mongodb/node-mongodb-native) driver). 
+  * [leafnode](https://github.com/objectlabs/leafnode): A hybrid synchronous / asynchronous MongoDB driver interface (wraps the [node-mongodb-native](https://github.com/mongodb/node-mongodb-native) driver). 
 * Design philosophy
 * FAQ
  
