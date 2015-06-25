@@ -35,6 +35,7 @@ __(function() {
   module.exports = o({
     _type: carbon.carbond.ObjectServer,
     port: 8888,
+    dbUri: 'mongodb://localhost:27017/mydb',
     endpoints: {
       zipcodes: o({
         _type: carbon.carbond.MongoDBCollection,
@@ -52,6 +53,7 @@ __(function() {
   module.exports = o({
     _type: carbon.carbond.ObjectServer,
     port: 8888,
+    dbUri: 'mongodb://localhost:27017/mydb',
     endpoints: {
       zipcodes: o({
         _type: carbon.carbond.Endpoint,
