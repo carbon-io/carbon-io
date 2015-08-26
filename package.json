@@ -17,10 +17,10 @@
   },
   "engines": { "node": ">= 0.5.2" },
   "dependencies" : {
-    "atom": "git+ssh://git@github.com:carbon-io/atom.git#v0.1.1",
-    "bond": "git+ssh://git@github.com:carbon-io/bond.git#v0.1.1",
-    "fiber": "git+ssh://git@github.com:carbon-io/fiber.git#v0.1.0",
-    "carbond": "git+ssh://git@github.com:carbon-io/carbond.git#v0.1.2"
+    "atom": "git+ssh://git@github.com:carbon-io/atom.git",
+    "bond": "git+ssh://git@github.com:carbon-io/bond.git",
+    "fiber": "git+ssh://git@github.com:carbon-io/fiber.git",
+    "carbond": "git+ssh://git@github.com:carbon-io/carbond.git"
   },
   "preferGlobal": false
 }
