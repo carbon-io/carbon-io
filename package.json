@@ -20,6 +20,7 @@
     "atom": "git+ssh://git@github.com:carbon-io/atom.git",
     "bond": "git+ssh://git@github.com:carbon-io/bond.git",
     "fiber": "git+ssh://git@github.com:carbon-io/fiber.git",
+    "leafnode": "git+ssh://git@github.com:objectlabs/leafnode.git#v2.1.6",
     "carbond": "git+ssh://git@github.com:carbon-io/carbond.git"
   },
   "preferGlobal": false
