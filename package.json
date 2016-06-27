@@ -22,7 +22,9 @@
     "fiber": "git+ssh://git@github.com:carbon-io/fiber.git",
     "leafnode": "git+ssh://git@github.com:objectlabs/leafnode.git#v3.2.0",
     "carbond": "git+ssh://git@github.com:carbon-io/carbond.git",
-    "test-tube": "git+ssh://git@github.com:carbon-io/test-tube.git"
+    "ejson": "git+ssh://git@github.com:carbon-io/ejson.git",
+    "test-tube": "git+ssh://git@github.com:carbon-io/test-tube.git",
+    "http-errors": "git+ssh://git@github.com:carbon-io/http-errors.git"
   },
   "preferGlobal": false
 }
