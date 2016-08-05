@@ -1,6 +1,6 @@
 {
   "name": "carbon-io",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "description": "Carbon.io",
   "keywords": ["carbon.io"],
   "contributors": [
@@ -20,7 +20,7 @@
     "atom": "git+ssh://git@github.com:carbon-io/atom.git#v0.2.2",
     "bond": "git+ssh://git@github.com:carbon-io/bond.git#v0.1.9",
     "@carbon-io/fibers": "git+ssh://git@github.com:carbon-io/fibers.git#v0.3.0",
-    "fibers": "git+ssh://git@github.com:carbon-io/fiber.git#v0.2.0",
+    "fiber": "git+ssh://git@github.com:carbon-io/fiber.git#v0.2.0",
     "leafnode": "git+ssh://git@github.com:objectlabs/leafnode.git#v3.2.0",
     "carbond": "git+ssh://git@github.com:carbon-io/carbond.git#v0.1.11",
     "ejson": "git+ssh://git@github.com:carbon-io/ejson.git#v0.0.3",
