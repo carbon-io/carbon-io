@@ -1,6 +1,6 @@
 {
   "name": "carbon-io",
-  "version": "0.1.23",
+  "version": "0.1.24",
   "description": "Carbon.io",
   "keywords": ["carbon.io"],
   "contributors": [
@@ -17,13 +17,13 @@
   },
   "engines": { "node": ">=4.0.0" },
   "dependencies" : {
-    "atom": "git+ssh://git@github.com:carbon-io/atom.git#v0.2.21",
-    "bond": "git+ssh://git@github.com:carbon-io/bond.git#v0.1.17",
+    "atom": "git+ssh://git@github.com:carbon-io/atom.git#v0.2.22",
+    "bond": "git+ssh://git@github.com:carbon-io/bond.git#v0.1.18",
     "@carbon-io/fibers": "git+ssh://git@github.com:carbon-io/fibers.git#v0.3.3",
     "leafnode": "git+ssh://git@github.com:objectlabs/leafnode.git#v3.2.1",
-    "carbond": "git+ssh://git@github.com:carbon-io/carbond.git#v0.1.22",
+    "carbond": "git+ssh://git@github.com:carbon-io/carbond.git#v0.1.23",
     "ejson": "git+ssh://git@github.com:carbon-io/ejson.git#v0.0.5",
-    "test-tube": "git+ssh://git@github.com:carbon-io/test-tube.git#v0.1.14",
+    "test-tube": "git+ssh://git@github.com:carbon-io/test-tube.git#v0.1.15",
     "http-errors": "git+ssh://git@github.com:carbon-io/http-errors.git#v0.0.3"
   },
   "preferGlobal": false
