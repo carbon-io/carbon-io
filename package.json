@@ -17,14 +17,8 @@
   },
   "engines": { "node": ">=4.0.0" },
   "dependencies" : {
-    "atom": "git+ssh://git@github.com:carbon-io/atom.git#v0.2.23",
-    "bond": "git+ssh://git@github.com:carbon-io/bond.git#v0.1.19",
-    "@carbon-io/fibers": "git+ssh://git@github.com:carbon-io/fibers.git#v0.3.3",
-    "leafnode": "git+ssh://git@github.com:objectlabs/leafnode.git#v3.2.1",
-    "carbond": "git+ssh://git@github.com:carbon-io/carbond.git#v0.1.24",
-    "ejson": "git+ssh://git@github.com:carbon-io/ejson.git#v0.0.5",
-    "test-tube": "git+ssh://git@github.com:carbon-io/test-tube.git#v0.1.16",
-    "http-errors": "git+ssh://git@github.com:carbon-io/http-errors.git#v0.0.4"
+    "carbon-core": "git+ssh://git@github.com:carbon-io/carbon-core#v0.1.2",
+    "carbond": "git+ssh://git@github.com:carbon-io/carbond.git#v0.1.24"
   },
   "preferGlobal": false
 }
