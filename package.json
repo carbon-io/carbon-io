@@ -1,6 +1,6 @@
 {
-  "name": "carbon-io",
-  "version": "0.1.29",
+  "name": "@carbon-io/carbon-io",
+  "version": "0.2.0",
   "description": "Carbon.io",
   "keywords": ["carbon.io"],
   "contributors": [
@@ -17,8 +17,8 @@
   },
   "engines": { "node": ">=4.0.0" },
   "dependencies" : {
-    "carbon-core": "git+ssh://git@github.com:carbon-io/carbon-core#v0.1.3",
-    "carbond": "git+ssh://git@github.com:carbon-io/carbond.git#v0.1.27"
+    "@carbon-io/carbon-core": "git+ssh://git@github.com:carbon-io/carbon-core#v0.2.0",
+    "@carbon-io/carbond": "git+ssh://git@github.com:carbon-io/carbond.git#v0.2.0"
   },
   "preferGlobal": false
 }
