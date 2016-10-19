@@ -1,6 +1,6 @@
 {
-  "name": "@carbon-io/carbon-io",
-  "version": "0.2.4",
+  "name": "carbon-io",
+  "version": "0.2.5",
   "description": "Carbon.io",
   "keywords": ["carbon.io"],
   "contributors": [
