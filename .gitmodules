@@ -1,0 +1,8 @@
+[submodule "docs/packages/carbon-core"]
+	path = docs/packages/carbon-core
+	url = https://github.com/carbon-io/carbon-core.git
+	branch = integrate-docs
+[submodule "docs/packages/carbond"]
+	path = docs/packages/carbond
+	url = https://github.com/carbon-io/carbond.git
+	branch = integrate-docs

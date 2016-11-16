@@ -53,5 +53,4 @@ env/
 # Docs
 #
 *~
-docs/_build/
-docs/build/
+docs/
