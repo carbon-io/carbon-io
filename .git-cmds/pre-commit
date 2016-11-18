@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# TODO
+exit 0
+
+REPO_ROOT=$(dirname $(dirname ${BASH_SOURCE[0]))
+
+
+# if we're not on master, then skip tests
+if [[ $(git rev-parse --abbrev-ref HEAD) != 'master' ]]; then
+    exit 0
+fi
+
+if ! which git-validate-docs; then
+    echo 'Can not find "git-validate-docs". If you would like to commit anyway, run with the "--no-verify" flag or add "${REPO_ROOT}/.git-cmds" to your path'
+    exit 1
+fi
+
+git validate-docs
+
+exit $?
+
