@@ -8,12 +8,14 @@ from __future__ import (
 )
 
 import argparse
+import urlparse
+import requests
 import logging
+import json
 import os
 import sys
 
 import gitcmdutils.semver as semver
-
 
 def main():
     parser = \
@@ -25,8 +27,15 @@ def main():
     opts = parser.parse_args(sys.argv[1:])
 
     logging.basicConfig(level=logging.DEBUG if opts.verbose else logging.WARN)
+    
+    #print('{!r}'.format(opts))
 
-    print('{!r}'.format(opts))
+    with open('../package.json') as package_json:
+        package = json.load(package_json)
+
+    with open('../.gitmodules') as git_modules:
+        for line in git_modules:
+            print(line)
 
     return 0
 
