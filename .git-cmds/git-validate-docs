@@ -7,15 +7,10 @@ from __future__ import (
     absolute_import
 )
 
+import gitcmdutils.version_utils as version_utils
 import argparse
-import urlparse
-import requests
 import logging
-import json
-import os
 import sys
-
-import gitcmdutils.semver as semver
 
 def main():
     parser = \
@@ -27,15 +22,11 @@ def main():
     opts = parser.parse_args(sys.argv[1:])
 
     logging.basicConfig(level=logging.DEBUG if opts.verbose else logging.WARN)
-    
-    #print('{!r}'.format(opts))
 
-    with open('../package.json') as package_json:
-        package = json.load(package_json)
+    def action_on_mismatch(dirpath, package, current_version, latest_matching_tag):
+        raise Exception("Current version (%s) of %s does not match latest tag: %s" % (current_version, package, latest_matching_tag))
 
-    with open('../.gitmodules') as git_modules:
-        for line in git_modules:
-            print(line)
+    version_utils.compare_submodule_versions_to_latest(action_on_mismatch=action_on_mismatch)    
 
     return 0
 
