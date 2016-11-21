@@ -69,7 +69,7 @@ def compare_submodule_versions_to_latest(action_on_mismatch=None):
                         if version != latest_matching_tag:
                             logging.info("***Current version does not match latest tag***")
                             if action_on_mismatch:
-                                action_on_mismatch(latest_matching_tag, path)
+                                action_on_mismatch(dirpath, name, version, latest_matching_tag)
 
 def fetch(uri, cache=None):
     parts = urlparse.urlparse(urlparse.urljoin(GITHUB_RAW, uri))
