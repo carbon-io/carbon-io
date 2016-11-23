@@ -78,7 +78,6 @@ def get_out_of_date_submodules():
                                  latest_matching_tag, 
                                  version)
                         if version != latest_matching_tag:
-                            logging.info("***Current version does not match latest tag***")
                             out_of_date_submodules.append({"path" : dirpath,
                                                            "parent_path" : parent})
     return out_of_date_submodules

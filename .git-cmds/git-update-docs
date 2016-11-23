@@ -9,11 +9,21 @@ from __future__ import (
 
 import gitcmdutils.version_utils as version_utils
 import gitcmdutils.semver as semver
+from collections import OrderedDict
 import argparse
 import logging
 import json
 import sys
 import os
+
+def prompt(question):
+    reply = str(raw_input(question+' (y/n): ')).lower().strip()
+    if reply[0] == 'y':
+        return True
+    if reply[0] == 'n':
+        return False
+    else:
+        return prompt("Please enter 'y' or 'n'...")
 
 def main():
     parser = \
@@ -30,39 +40,48 @@ def main():
 
     submodules_to_commit = {}
 
-    print("Update each of these out of date submodules...")
     for submodule in version_utils.get_out_of_date_submodules():
-        print(submodule['path'])
         parent_path = submodule['parent_path']
+        # Build dict of parent submodules with out of date children
+        # key = dirpath to parent, value = depth in submodule tree
         submodules_to_commit[parent_path] = parent_path.count('docs/packages')
 
+    # Sort parent submodules by depth
     submodules_to_commit = sorted(submodules_to_commit, key=submodules_to_commit.get, reverse=True)
 
-    print("\nBeginning commits...")
+    # Bump version, commit, tag and push parent submodules in order of decreasing depth
     for submodule in submodules_to_commit:
         new_tag = None
-        print("\nUpdating: %s" % submodule)
-        with open(submodule + 'package.json') as package:
-            package_json = json.load(package)
+
+        logging.info("\nUpdating: %s" % submodule)
+        with open(submodule + 'package.json', 'r') as f:
+            package_json = json.load(f, object_pairs_hook=OrderedDict)
             new_tag = semver.bump_patch(package_json['version'])
-            print("\nOld package.json:\n%s" % json.dumps(package_json, indent=4))
             package_json['version'] = new_tag
-            print("\nWriting to package.json:\n%s" % json.dumps(package_json, indent=4))
+        
+        print(json.dumps(package_json, indent=4, sort_keys=False))
+
+        if not opts.non_interactive and not prompt("Would you like to commit this change?"):
+            continue
+
+        with open(submodule + 'package.json', 'w') as f:
+            json.dump(package_json, f, indent=4, sort_keys=False)
+
+        cwd = os.getcwd()
+        os.chdir(submodule)
 
         git_commit_command = "git commit -am \"%s\"" % ("Bump version")
         git_tag_command = "git tag -a \"v%s\" -m \"v%s\"" % (new_tag, new_tag)
         git_push_command = "git push --tags origin master"
 
-        cwd = os.getcwd()
-        os.chdir(submodule)
-        print("\ncd to %s" % submodule)
-
-        print("Issuing git command: %s" % (git_commit_command))
-        print("Issuing git command: %s" % (git_tag_command))
-        print("Issuing git command: %s" % (git_push_command))
+        logging.info("Issuing git command: %s" % (git_commit_command))
+        os.system(git_commit_command)
+        logging.info("Issuing git command: %s" % (git_tag_command))
+        os.system(git_tag_command)
+        logging.info("Issuing git command: %s" % (git_push_command))
+        os.system(git_push_command)
 
         os.chdir(cwd)
-        print("cd to %s" % cwd)
 
     return 0
 

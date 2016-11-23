@@ -27,9 +27,9 @@ def main():
     
     if len(out_of_date_submodules) > 0:
         # FAIL
-        print("Out of date:")
+        logging.info("\n\nResults:\n")
         for submodule in out_of_date_submodules:
-            print("submodule: %s" % submodule['path'])
+            logging.info("submodule: %s not latest tag!!" % submodule['path'])
 
     return 0
 
