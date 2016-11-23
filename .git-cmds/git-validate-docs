@@ -23,10 +23,13 @@ def main():
 
     logging.basicConfig(level=logging.DEBUG if opts.verbose else logging.WARN)
 
-    def action_on_mismatch(dirpath, package, current_version, latest_matching_tag):
-        raise Exception("Current version (%s) of %s does not match latest tag: %s" % (current_version, package, latest_matching_tag))
-
-    version_utils.compare_submodule_versions_to_latest(action_on_mismatch=action_on_mismatch)    
+    out_of_date_submodules = version_utils.get_out_of_date_submodules()
+    
+    if len(out_of_date_submodules) > 0:
+        # FAIL
+        print("Out of date:")
+        for submodule in out_of_date_submodules:
+            print("submodule: %s" % submodule['path'])
 
     return 0
 
