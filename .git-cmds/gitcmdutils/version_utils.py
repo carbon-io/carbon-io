@@ -98,14 +98,3 @@ def fetch(uri, cache=None):
     else:
         raise Exception('{!s} is not a suppported scheme'.format(parts.scheme))
 
-
-
-
-
-
-
-
-
-
-
-
