@@ -19,9 +19,6 @@ def add_scope(name):
 def build_uri_for_github_tag_api(package):
     return "/repos/" + GITHUB_ORG + "/" + package + "/git/refs/tags"
 
-def find_latest_matching_tag_for_package1(package_name, semver_range, current_version):
-    return semver.bump_major(current_version)
-
 def find_latest_matching_tag_for_package(package_name, semver_range):
     refs = fetch(build_uri_for_github_tag_api(package_name))
     latest_matching_tag = "0.0.0"
@@ -71,7 +68,7 @@ def get_out_of_date_submodules():
                         parent_name = parent_package_json['name']
                         parent_dependencies = parent_package_json['dependencies']
                         latest_matching_tag = \
-                            find_latest_matching_tag_for_package1(name, parent_dependencies[add_scope(name)], version)
+                            find_latest_matching_tag_for_package(name, parent_dependencies[add_scope(name)])
                         log_info(name, 
                                  strip_scope(parent_name), 
                                  parent_dependencies[add_scope(name)], 
