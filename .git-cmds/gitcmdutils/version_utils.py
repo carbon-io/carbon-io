@@ -53,7 +53,21 @@ def log_info(package_name, parent, dep_semver, latest_matching_tag, current_vers
     logging.info("latest matching tag: %s" % latest_matching_tag)
     logging.info("current version: %s\n" % current_version)
 
-def get_out_of_date_submodules():
+def has_children(dirpath):
+    # TODO: if /docs/packages exists, also check if it is empty
+    if os.path.exists(dirpath + '/docs/packages') and 'node_modules' not in dirpath and '.git' not in dirpath:
+        return True
+    else:
+        return False
+
+def do_checkout(dirpath, branch):
+    cwd = os.getcwd()
+    os.chdir(dirpath)
+    os.system("git fetch")
+    os.system("git checkout %s" % branch)
+    os.chdir(cwd)
+
+def get_out_of_date_submodules(checkout=False):
     out_of_date_submodules = []
     for (dirpath,_,_) in os.walk('..'):
         if os.path.exists(dirpath + '/package.json') and 'node_modules' not in dirpath and '.git' not in dirpath:
@@ -74,18 +88,29 @@ def get_out_of_date_submodules():
                                  parent_dependencies[add_scope(name)], 
                                  latest_matching_tag, 
                                  version)
+
                         if version != latest_matching_tag:
                             out_of_date_submodules.append({"path" : dirpath,
                                                            "parent_path" : parent})
+                            if checkout:
+                                if has_children(dirpath):
+                                    # fetch and checkout master
+                                    do_checkout(dirpath, 'master')
+                                else:
+                                    # fetch and checkout latest_matching_tag
+                                    do_checkout(dirpath, latest_matching_tag)
+
     return out_of_date_submodules
 
 def build_parent_submodule_update_order(deepest_depth):
     parent_submodules = {}
     for (dirpath,_,_) in os.walk('..'):
-        if os.path.exists(dirpath + '/docs/packages') and 'node_modules' not in dirpath and '.git' not in dirpath:
+        if has_children(dirpath):
             depth = dirpath.count('docs/packages')
             if depth <= deepest_depth:
                 parent_submodules[dirpath] = depth
+            # checkout again in case this parent is not out of date
+            do_checkout(dirpath, 'master')
     parent_submodules = sorted(parent_submodules, key=parent_submodules.get, reverse=True)
     return parent_submodules
 

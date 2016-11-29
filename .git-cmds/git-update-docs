@@ -25,11 +25,12 @@ def prompt(question):
     else:
         return prompt("Please enter 'y' or 'n'...")
 
-def pull_out_of_date_submodule(submodule):
-    cwd = os.getcwd()
-    os.chdir(submodule)
-    os.system("git pull")
-    os.chdir(cwd)
+def get_depth_for_deepest_parent(submodules):
+    deepest_parent_depth = 0
+    for submodule in submodules:
+        parent_depth = submodule['parent_path'].count('docs/packages')
+        deepest_parent_depth = parent_depth if parent_depth > deepest_parent_depth else deepest_parent_depth
+    return deepest_parent_depth
 
 def main():
     parser = \
@@ -44,16 +45,8 @@ def main():
 
     logging.basicConfig(level=logging.DEBUG if opts.verbose else logging.WARN)
 
-    submodules_to_commit = {}
-    deepest_parent_depth = 0
-
-    for submodule in version_utils.get_out_of_date_submodules():
-        # pull in latest
-        pull_out_of_date_submodule(submodule['path'])
-        parent_path = submodule['parent_path']
-        # remember which parent is at the deepest depth so we can update from there to the root of the tree
-        parent_depth = parent_path.count('docs/packages')
-        deepest_parent_depth = parent_depth if parent_depth > deepest_parent_depth else deepest_parent_depth
+    out_of_date_submodules = version.get_out_of_date_submodules(checkout=True)
+    deepest_parent_depth = get_depth_for_deepest_parent(out_of_date_submodules)
 
     # Get a list of parent submodules to commit in order of descending depth
     submodules_to_commit_in_order = version_utils.build_parent_submodule_update_order(deepest_parent_depth)

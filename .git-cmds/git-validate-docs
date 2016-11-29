@@ -29,7 +29,7 @@ def main():
         # FAIL
         logging.info("\n\nResults:\n")
         for submodule in out_of_date_submodules:
-            logging.info("submodule: %s not latest tag!!" % submodule['path'])
+            logging.info("submodule: %s is out of date!!" % submodule['path'])
 
     return 0
 
