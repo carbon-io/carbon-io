@@ -56,7 +56,7 @@ def log_info(package_name, parent, dep_semver, latest_matching_tag, current_vers
 def get_out_of_date_submodules():
     out_of_date_submodules = []
     for (dirpath,_,_) in os.walk('..'):
-        if os.path.exists(dirpath + '/package.json') and 'node_modules' not in dirpath:
+        if os.path.exists(dirpath + '/package.json') and 'node_modules' not in dirpath and '.git' not in dirpath:
             with open(dirpath + '/package.json') as package:
                 package_json = json.load(package)
                 name = strip_scope(package_json['name'])
@@ -78,6 +78,16 @@ def get_out_of_date_submodules():
                             out_of_date_submodules.append({"path" : dirpath,
                                                            "parent_path" : parent})
     return out_of_date_submodules
+
+def build_parent_submodule_update_order(deepest_depth):
+    parent_submodules = {}
+    for (dirpath,_,_) in os.walk('..'):
+        if os.path.exists(dirpath + '/docs/packages') and 'node_modules' not in dirpath and '.git' not in dirpath:
+            depth = dirpath.count('docs/packages')
+            if depth <= deepest_depth:
+                parent_submodules[dirpath] = depth
+    parent_submodules = sorted(parent_submodules, key=parent_submodules.get, reverse=True)
+    return parent_submodules
 
 def fetch(uri, cache=None):
     parts = urlparse.urlparse(urlparse.urljoin(GITHUB_RAW, uri))

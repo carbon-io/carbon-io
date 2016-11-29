@@ -25,6 +25,12 @@ def prompt(question):
     else:
         return prompt("Please enter 'y' or 'n'...")
 
+def pull_out_of_date_submodule(submodule):
+    cwd = os.getcwd()
+    os.chdir(submodule)
+    os.system("git pull")
+    os.chdir(cwd)
+
 def main():
     parser = \
         argparse.ArgumentParser(description='update carbon-io docs submodules')
@@ -39,22 +45,25 @@ def main():
     logging.basicConfig(level=logging.DEBUG if opts.verbose else logging.WARN)
 
     submodules_to_commit = {}
+    deepest_parent_depth = 0
 
     for submodule in version_utils.get_out_of_date_submodules():
+        # pull in latest
+        pull_out_of_date_submodule(submodule['path'])
         parent_path = submodule['parent_path']
-        # Build dict of parent submodules with out of date children
-        # key = dirpath to parent, value = depth in submodule tree
-        submodules_to_commit[parent_path] = parent_path.count('docs/packages')
+        # remember which parent is at the deepest depth so we can update from there to the root of the tree
+        parent_depth = parent_path.count('docs/packages')
+        deepest_parent_depth = parent_depth if parent_depth > deepest_parent_depth else deepest_parent_depth
 
-    # Sort parent submodules by depth
-    submodules_to_commit = sorted(submodules_to_commit, key=submodules_to_commit.get, reverse=True)
+    # Get a list of parent submodules to commit in order of descending depth
+    submodules_to_commit_in_order = version_utils.build_parent_submodule_update_order(deepest_parent_depth)
 
     # Bump version, commit, tag and push parent submodules in order of decreasing depth
-    for submodule in submodules_to_commit:
+    for submodule in submodules_to_commit_in_order:
         new_tag = None
 
         logging.info("\nUpdating: %s" % submodule)
-        with open(submodule + 'package.json', 'r') as f:
+        with open(submodule + '/package.json', 'r') as f:
             package_json = json.load(f, object_pairs_hook=OrderedDict)
             new_tag = semver.bump_patch(package_json['version'])
             package_json['version'] = new_tag
@@ -64,7 +73,7 @@ def main():
         if not opts.non_interactive and not prompt("Would you like to commit this change?"):
             continue
 
-        with open(submodule + 'package.json', 'w') as f:
+        with open(submodule + '/package.json', 'w') as f:
             json.dump(package_json, f, indent=4, sort_keys=False)
 
         cwd = os.getcwd()
