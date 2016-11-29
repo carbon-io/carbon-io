@@ -45,7 +45,7 @@ def main():
 
     logging.basicConfig(level=logging.DEBUG if opts.verbose else logging.WARN)
 
-    out_of_date_submodules = version.get_out_of_date_submodules(checkout=True)
+    out_of_date_submodules = version_utils.get_out_of_date_submodules(checkout=True)
     deepest_parent_depth = get_depth_for_deepest_parent(out_of_date_submodules)
 
     # Get a list of parent submodules to commit in order of descending depth
