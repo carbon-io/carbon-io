@@ -23,14 +23,18 @@ def main():
 
     logging.basicConfig(level=logging.DEBUG if opts.verbose else logging.WARN)
 
-    out_of_date_submodules = version_utils.get_out_of_date_submodules()
+    try:
+        out_of_date_submodules = version_utils.get_out_of_date_submodules()
+    except Exception, e:
+        logging.info("Exception during validation: ", e)
+        return -1
     
     if len(out_of_date_submodules) > 0:
         # FAIL
         logging.info("\n\nResults:\n")
         for submodule in out_of_date_submodules:
             logging.info("submodule: %s is out of date!!" % submodule['path'])
-
+        return 1
     return 0
 
 

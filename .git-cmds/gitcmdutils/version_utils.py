@@ -94,10 +94,10 @@ def get_out_of_date_submodules(checkout=False):
                                                            "parent_path" : parent})
                             if checkout:
                                 if has_children(dirpath):
-                                    # fetch and checkout master
+                                    # parent node, will be tagging so fetch and checkout master
                                     do_checkout(dirpath, 'master')
                                 else:
-                                    # fetch and checkout latest_matching_tag
+                                    # leaf node, fetch and checkout latest_matching_tag
                                     do_checkout(dirpath, "v" + latest_matching_tag)
 
     return out_of_date_submodules
@@ -109,7 +109,7 @@ def build_parent_submodule_update_order(deepest_depth):
             depth = dirpath.count('docs/packages')
             if depth <= deepest_depth:
                 parent_submodules[dirpath] = depth
-            # checkout again in case this parent is not out of date
+            # checkout in case this parent was not out of date
             do_checkout(dirpath, 'master')
     parent_submodules = sorted(parent_submodules, key=parent_submodules.get, reverse=True)
     return parent_submodules
