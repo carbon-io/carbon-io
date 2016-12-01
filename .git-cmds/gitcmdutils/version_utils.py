@@ -98,7 +98,7 @@ def get_out_of_date_submodules(checkout=False):
                                     do_checkout(dirpath, 'master')
                                 else:
                                     # fetch and checkout latest_matching_tag
-                                    do_checkout(dirpath, latest_matching_tag)
+                                    do_checkout(dirpath, "v" + latest_matching_tag)
 
     return out_of_date_submodules
 
