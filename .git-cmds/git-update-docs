@@ -59,6 +59,7 @@ def main():
         with open(submodule + '/package.json', 'r') as f:
             package_json = json.load(f, object_pairs_hook=OrderedDict)
             new_tag = semver.bump_patch(package_json['version'])
+            new_tag += '-gitcmds'
             package_json['version'] = new_tag
         
         print(json.dumps(package_json, indent=4, sort_keys=False))
@@ -74,7 +75,7 @@ def main():
 
         git_commit_command = "git commit -am \"%s\"" % ("Bump version")
         git_tag_command = "git tag -a \"v%s\" -m \"v%s\"" % (new_tag, new_tag)
-        git_push_command = "git push --tags origin master"
+        git_push_command = "git push --tags origin gitcmds"
 
         logging.info("Issuing git command: %s" % (git_commit_command))
         os.system(git_commit_command)
