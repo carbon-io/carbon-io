@@ -81,7 +81,7 @@ There are two ways to control the verbosity level of a ``Service``:
 1. Setting the ``verbosity`` property of the ``Service`` as part of its
    configuration:
 
-..  code-block:: javascript 
+.. code-block:: javascript 
   :linenos:
   :emphasize-lines: 9 
 
@@ -104,10 +104,9 @@ There are two ways to control the verbosity level of a ``Service``:
    the verbosity level, which will set the value of the ``verbosity``
    property on your ``Service`` object. 
 
+.. code-block:: sh 
 
-..  code-block:: sh 
-
-% node <path-to-your-app>/MyService -v info
+  % node <path-to-your-app>/MyService -v info
 
 
 Logging output

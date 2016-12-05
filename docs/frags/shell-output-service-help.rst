@@ -1,6 +1,6 @@
-% node <path-to-your-app>/MyService1 --help
+% node <path-to-your-app>/MyService --help
 
-Usage: node MyService1 <command> [options]
+Usage: node MyService <command> [options]
 
 command     
   start-server        start the api server

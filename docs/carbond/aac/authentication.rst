@@ -65,7 +65,7 @@ Examples
   :emphasize-lines: 4 - 9, 14
 
   module.exports = o({
-    _type: carbon.carbond.ObjectServer,
+    _type: carbon.carbond.Service,
     port: 8888,
     authenticator: o({
       _type: carbon.carbond.security.MongoDBHttpBasicAuthenticator,
@@ -90,7 +90,7 @@ Examples
   :emphasize-lines: 4 - 10, 15
 
   module.exports = o({
-    _type: carbon.carbond.ObjectServer,
+    _type: carbon.carbond.Service,
     port: 8888,
     authenticator: o({
       _type: carbon.carbond.security.MongoDBApiKeyAuthenticator,
@@ -116,7 +116,7 @@ Examples
   :emphasize-lines: 4 - 10, 15
 
   module.exports = o({
-    _type: carbon.carbond.ObjectServer,    
+    _type: carbon.carbond.Service,    
     port: 8888,
     authenticator: o({
       _type: carbon.carbond.security.Authenticator,
