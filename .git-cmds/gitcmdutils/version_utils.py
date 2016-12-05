@@ -65,7 +65,7 @@ def do_checkout(dirpath, branch):
     os.chdir(dirpath)
     os.system("git fetch")
     os.system("git checkout %s" % branch)
-    os.system("git merge origin %s"  % branch)
+    os.system("git merge --no-edit origin %s"  % branch)
     os.chdir(cwd)
 
 def get_out_of_date_submodules(checkout=False):
