@@ -51,7 +51,7 @@ In ``MyService.js``:
 
  var carbon = require('carbon-io')
  var o  = carbon.atom.o(module).main
- var __ = carbon.fiber.__(module).main
+ var __ = carbon.fibers.__(module).main
  var _o = carbon.bond._o(module)
 
  __(function() {
@@ -70,14 +70,14 @@ In ``MyService.js``:
 Using o, __, and _o
 --------------------
 
-The pre-ample requires the main ``carbon-io`` package as well as
+The preamble requires the main ``carbon-io`` package as well as
 defines the ``o``, ``__``, and ``_o`` operators. 
 
 ..  code-block:: javascript
 
     var carbon = require('carbon-io')
     var o  = carbon.atom.o(module).main
-    var __ = carbon.fiber.__(module).main
+    var __ = carbon.fibers.__(module).main
     var _o = carbon.bond._o(module)
 
 The ``o`` operator is part of the Atom sub-project of Carbon.io and 
@@ -88,12 +88,12 @@ understand the Carbon.io component infrastructure, as it is core to
 Carbon.io.
 
 The ``__`` is used to run this service inside of a `Fiber
-<https://github.com/carbon-io/fiber>`_ when this module is invoked as
+<https://github.com/carbon-io/fibers>`_ when this module is invoked as
 the main module from the command line. Carbon.io makes heavy use of
 `Node Fibers <https://github.com/laverdet/node-fibers>`_ to allow for
 services to be written in a synchronous (as well as asynchronous)
 style. More details can be found in the documentation for the
-Carbon.io `fiber package <https://github.com/carbon-io/fiber>`_.
+Carbon.io `fibers package <https://github.com/carbon-io/fibers>`_.
 
 The ``_o`` is the name resolver utility used by Carbon.io. It is not
 used in this example, although it is used commonly, and documented as
