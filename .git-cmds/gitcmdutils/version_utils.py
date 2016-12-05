@@ -55,7 +55,7 @@ def log_info(package_name, parent, dep_semver, latest_matching_tag, current_vers
 
 def has_children(dirpath):
     # TODO: if /docs/packages exists, also check if it is empty
-    if os.path.exists(dirpath + '/docs/packages') and 'node_modules' not in dirpath and '.git' not in dirpath:
+    if os.path.exists(dirpath + '/docs/packages') and 'node_modules' not in dirpath and '.git' not in dirpath and 'docs/_build' not in dirpath:
         return True
     else:
         return False
@@ -71,7 +71,7 @@ def do_checkout(dirpath, branch):
 def get_out_of_date_submodules(checkout=False):
     out_of_date_submodules = []
     for (dirpath,_,_) in os.walk('..'):
-        if os.path.exists(dirpath + '/package.json') and 'node_modules' not in dirpath and '.git' not in dirpath:
+        if os.path.exists(dirpath + '/package.json') and 'node_modules' not in dirpath and '.git' not in dirpath and 'docs/_build' not in dirpath:
             with open(dirpath + '/package.json') as package:
                 package_json = json.load(package)
                 name = strip_scope(package_json['name'])
