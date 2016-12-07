@@ -7,15 +7,10 @@ from __future__ import (
     absolute_import
 )
 
+import gitcmdutils.version_utils as version_utils
 import argparse
-import urlparse
-import requests
 import logging
-import json
-import os
 import sys
-
-import gitcmdutils.semver as semver
 
 def main():
     parser = \
@@ -27,19 +22,21 @@ def main():
     opts = parser.parse_args(sys.argv[1:])
 
     logging.basicConfig(level=logging.DEBUG if opts.verbose else logging.WARN)
+
+    try:
+        out_of_date_submodules = version_utils.get_out_of_date_submodules()
+    except Exception, e:
+        logging.info("Exception during validation: ", e)
+        return -1
     
-    #print('{!r}'.format(opts))
-
-    with open('../package.json') as package_json:
-        package = json.load(package_json)
-
-    with open('../.gitmodules') as git_modules:
-        for line in git_modules:
-            print(line)
-
+    if len(out_of_date_submodules) > 0:
+        # FAIL
+        logging.info("\n\nResults:\n")
+        for submodule in out_of_date_submodules:
+            logging.info("submodule: %s is out of date!!" % submodule['path'])
+        return 1
     return 0
 
 
 if __name__ == '__main__':
     sys.exit(main())
-
