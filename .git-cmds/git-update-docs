@@ -88,6 +88,38 @@ def main():
 
     return 0
 
+        logging.info("\nUpdating: %s" % submodule)
+        with open(submodule + '/package.json', 'r') as f:
+            package_json = json.load(f, object_pairs_hook=OrderedDict)
+            new_tag = semver.bump_patch(package_json['version'])
+            new_tag += '-gitcmds'
+            package_json['version'] = new_tag
+        
+        print(json.dumps(package_json, indent=4, sort_keys=False))
+
+        if not opts.non_interactive and not prompt("Would you like to commit this change?"):
+            continue
+
+        with open(submodule + '/package.json', 'w') as f:
+            json.dump(package_json, f, indent=4, sort_keys=False)
+
+        cwd = os.getcwd()
+        os.chdir(submodule)
+
+        git_commit_command = "git commit -am \"%s\"" % ("Bump version")
+        git_tag_command = "git tag -a \"v%s\" -m \"v%s\"" % (new_tag, new_tag)
+        git_push_command = "git push --tags origin gitcmds"
+
+        logging.info("Issuing git command: %s" % (git_commit_command))
+        os.system(git_commit_command)
+        logging.info("Issuing git command: %s" % (git_tag_command))
+        os.system(git_tag_command)
+        logging.info("Issuing git command: %s" % (git_push_command))
+        os.system(git_push_command)
+
+        os.chdir(cwd)
+
+    return 0
+
 if __name__ == '__main__':
     sys.exit(main())
-
