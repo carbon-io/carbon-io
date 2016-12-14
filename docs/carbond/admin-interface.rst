@@ -1,7 +1,0 @@
-========================
-Administrative interface
-========================
-
-.. toctree::
-
-TODO

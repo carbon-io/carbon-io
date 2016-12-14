@@ -1,6 +1,6 @@
-====================
-Carbon Documentation
-====================
+=======================
+Carbon.io Documentation
+=======================
 
 Contents:
 
@@ -13,9 +13,9 @@ Contents:
 
 .. toctree::
 
-  carbond/index
+  packages/carbond/docs/guide/index
   infrastructure-components/index
-  class-reference/index
+  packages/carbond/docs/ref/index
   examples.rst 
   faq/index
   support.rst
