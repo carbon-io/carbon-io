@@ -10,6 +10,7 @@ from __future__ import (
 import gitcmdutils.version_utils as version_utils
 import gitcmdutils.semver as semver
 from collections import OrderedDict
+import subprocess
 import argparse
 import logging
 import json
@@ -78,11 +79,11 @@ def main():
         git_push_command = "git push --tags origin gitcmds"
 
         logging.info("Issuing git command: %s" % (git_commit_command))
-        os.system(git_commit_command)
+        subprocess.call(git_commit_command.split())
         logging.info("Issuing git command: %s" % (git_tag_command))
-        os.system(git_tag_command)
+        subprocess.call(git_tag_command.split())
         logging.info("Issuing git command: %s" % (git_push_command))
-        os.system(git_push_command)
+        subprocess.call(git_push_command.split())
 
         os.chdir(cwd)
 

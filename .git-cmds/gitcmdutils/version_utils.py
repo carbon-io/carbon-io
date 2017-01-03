@@ -1,4 +1,5 @@
 import semver
+import subprocess
 import logging
 import urlparse
 import urllib
@@ -9,6 +10,7 @@ import sys
 GITHUB_RAW = 'https://api.github.com/repos'
 GITHUB_ORG = 'carbon-io'
 SCOPE = '@carbon-io/'
+PATH_BLACKLIST = ['node_modules', '.git', 'docs/_build']
 
 def strip_scope(name):
     return name.replace(SCOPE,'')
@@ -16,14 +18,20 @@ def strip_scope(name):
 def add_scope(name):
     return SCOPE + name
 
-def build_uri_for_github_tag_api(package):
-    return "/repos/" + GITHUB_ORG + "/" + package + "/git/refs/tags"
+def build_uri_for_github_api(package):
+    access_token = ''
+    if "GITHUB_API_ACCESS" in os.environ:
+        access_token = "/?access_token=" + os.environ["GITHUB_API_ACCESS"]
+    else:
+        logging.info("No access token found for github API: requests rate limited at 60 requests per hour.")
+    return "/repos/" + GITHUB_ORG + "/" + package + "/git/refs/tags" + access_token
 
 def find_latest_matching_tag_for_package(package_name, semver_range):
-    refs = fetch(build_uri_for_github_tag_api(package_name))
+    refs = fetch(build_uri_for_github_api(package_name))
     latest_matching_tag = "0.0.0"
     for ref in refs:
         tag = ref['ref'].replace('refs/tags/v','')
+        # must desugar advanced range syntax to use the semver library
         if desugar_range_and_match(tag, semver_range):
             if semver.compare(tag, latest_matching_tag) == 1:
                 latest_matching_tag = tag
@@ -53,25 +61,36 @@ def log_info(package_name, parent, dep_semver, latest_matching_tag, current_vers
     logging.info("latest matching tag: %s" % latest_matching_tag)
     logging.info("current version: %s\n" % current_version)
 
+def exists_in_submodule_path(dirpath):
+    if os.path.exists(dirpath):
+        for subpath in PATH_BLACKLIST:
+            if subpath in dirpath:
+                return False
+        return True
+    return False
+
 def has_children(dirpath):
     # TODO: if /docs/packages exists, also check if it is empty
-    if os.path.exists(dirpath + '/docs/packages') and 'node_modules' not in dirpath and '.git' not in dirpath and 'docs/_build' not in dirpath:
+    if exists_in_submodule_path(dirpath + '/docs/packages'):
         return True
     else:
         return False
 
 def do_checkout(dirpath, branch):
     cwd = os.getcwd()
+    fetch_cmd = "git fetch"
+    checkout_cmd = "git checkout %s" % branch
+    merge_cmd = "git merge --no-edit origin %s"  % branch
     os.chdir(dirpath)
-    os.system("git fetch")
-    os.system("git checkout %s" % branch)
-    os.system("git merge --no-edit origin %s"  % branch)
+    subprocess.call(fetch_cmd.split())
+    subprocess.call(checkout_cmd.split())
+    subprocess.call(merge_cmd.split())
     os.chdir(cwd)
 
 def get_out_of_date_submodules(checkout=False):
     out_of_date_submodules = []
     for (dirpath,_,_) in os.walk('..'):
-        if os.path.exists(dirpath + '/package.json') and 'node_modules' not in dirpath and '.git' not in dirpath and 'docs/_build' not in dirpath:
+        if exists_in_submodule_path(dirpath + '/package.json'):
             with open(dirpath + '/package.json') as package:
                 package_json = json.load(package)
                 name = strip_scope(package_json['name'])
