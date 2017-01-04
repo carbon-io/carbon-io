@@ -4,6 +4,7 @@ import logging
 import urlparse
 import urllib
 import json
+import shlex
 import os
 import sys
 
@@ -82,9 +83,9 @@ def do_checkout(dirpath, branch):
     checkout_cmd = "git checkout %s" % branch
     merge_cmd = "git merge --no-edit origin %s"  % branch
     os.chdir(dirpath)
-    subprocess.call(fetch_cmd.split())
-    subprocess.call(checkout_cmd.split())
-    subprocess.call(merge_cmd.split())
+    subprocess.call(shlex.split(fetch_cmd))
+    subprocess.call(shlex.split(checkout_cmd))
+    subprocess.call(shlex.split(merge_cmd))
     os.chdir(cwd)
 
 def get_out_of_date_submodules(checkout=False):

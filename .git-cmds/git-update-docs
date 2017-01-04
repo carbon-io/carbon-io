@@ -14,6 +14,7 @@ import subprocess
 import argparse
 import logging
 import json
+import shlex
 import sys
 import os
 
@@ -74,16 +75,16 @@ def main():
         cwd = os.getcwd()
         os.chdir(submodule)
 
-        git_commit_command = "git commit -am Bump-Version"
+        git_commit_command = "git commit -am \"bump version\""
         git_tag_command = "git tag -a v%s -m v%s" % (new_tag, new_tag)
         git_push_command = "git push --tags origin gitcmds"
 
         logging.info("Issuing git command: %s" % (git_commit_command))
-        subprocess.call(git_commit_command.split())
+        subprocess.call(shlex.split(git_commit_command))
         logging.info("Issuing git command: %s" % (git_tag_command))
-        subprocess.call(git_tag_command.split())
+        subprocess.call(shlex.split(git_tag_command))
         logging.info("Issuing git command: %s" % (git_push_command))
-        subprocess.call(git_push_command.split())
+        subprocess.call(shlex.split(git_push_command))
 
         os.chdir(cwd)
 
