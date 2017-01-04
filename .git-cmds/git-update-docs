@@ -74,8 +74,8 @@ def main():
         cwd = os.getcwd()
         os.chdir(submodule)
 
-        git_commit_command = "git commit -am \"%s\"" % ("Bump version")
-        git_tag_command = "git tag -a \"v%s\" -m \"v%s\"" % (new_tag, new_tag)
+        git_commit_command = "git commit -am Bump-Version"
+        git_tag_command = "git tag -a v%s -m v%s" % (new_tag, new_tag)
         git_push_command = "git push --tags origin gitcmds"
 
         logging.info("Issuing git command: %s" % (git_commit_command))
