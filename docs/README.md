@@ -35,6 +35,12 @@ Install the documentation dependencies:
 % pip install -r requirements.txt
 ```
 
+Pull in git submodules:
+
+```sh
+% git submodule update --init --recursive
+```
+
 ## Run the project
 
 You may want 'make clean' if you make edits to CSS or JS files, as Sphinx's auto-build library may not catch your changes.
