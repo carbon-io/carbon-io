@@ -110,8 +110,12 @@ def get_out_of_date_submodules(checkout=False):
                                  version)
 
                         if version != latest_matching_tag:
-                            out_of_date_submodules.append({"path" : dirpath,
-                                                           "parent_path" : parent})
+                            if semver.compare(latest_matching_tag, version) == -1:
+                                logging.info("*** WARNING: The version for %s (%s) succeeds the latest matching tag (%s)!!! ***\n" 
+                                    % (name, version, latest_matching_tag))
+                            else:
+                                out_of_date_submodules.append({"path" : dirpath,
+                                                               "parent_path" : parent})
                             if checkout:
                                 if has_children(dirpath):
                                     # parent node, will be tagging so fetch and checkout master
