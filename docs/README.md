@@ -35,6 +35,12 @@ Install the documentation dependencies:
 % pip install -r requirements.txt
 ```
 
+From the ```carbon-io``` root directory, pull in Carbon submodules:
+
+```sh
+% git submodule update --init --recursive
+```
+
 ## Run the project
 
 You may want 'make clean' if you make edits to CSS or JS files, as Sphinx's auto-build library may not catch your changes.
