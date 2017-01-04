@@ -35,7 +35,7 @@ Install the documentation dependencies:
 % pip install -r requirements.txt
 ```
 
-Pull in git submodules:
+From the ```carbon-io``` root directory, pull in Carbon submodules:
 
 ```sh
 % git submodule update --init --recursive
