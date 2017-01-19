@@ -120,7 +120,7 @@ def get_out_of_date_submodules(checkout=False):
                             if checkout:
                                 if has_children(dirpath):
                                     # parent node, will be tagging so fetch and checkout master
-                                    do_checkout(dirpath, 'gitcmds')
+                                    do_checkout(dirpath, 'master')
                                 else:
                                     # leaf node, fetch and checkout latest_matching_tag
                                     do_checkout(dirpath, "v" + latest_matching_tag)
@@ -135,7 +135,7 @@ def build_parent_submodule_update_order(deepest_depth):
             if depth <= deepest_depth:
                 parent_submodules[dirpath] = depth
             # checkout in case this parent was not out of date
-            do_checkout(dirpath, 'gitcmds')
+            do_checkout(dirpath, 'master')
     parent_submodules = sorted(parent_submodules, key=parent_submodules.get, reverse=True)
     return parent_submodules
 
