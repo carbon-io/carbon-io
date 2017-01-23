@@ -123,7 +123,7 @@ def get_out_of_date_submodules(checkout=False):
                                     do_checkout(dirpath, 'master')
                                 else:
                                     # leaf node, fetch and checkout latest_matching_tag
-                                    logging.info("Checking out latest matching tag (%s) for %s...\n" % name)
+                                    logging.info("Checking out latest matching tag (%s) for %s...\n" % (latest_matching_tag, name))
                                     do_checkout(dirpath, "v" + latest_matching_tag)
 
 
