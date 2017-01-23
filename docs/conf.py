@@ -32,6 +32,7 @@ import sphinx_rtd_theme
 extensions = [
     'sphinx.ext.intersphinx',
     'sphinx.ext.ifconfig',
+    'sphinx.ext.autosectionlabel',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
