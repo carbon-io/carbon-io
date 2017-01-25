@@ -8,7 +8,7 @@ We recommend using [virtualenv](https://virtualenv.readthedocs.org/en/latest/ind
 
 ## Steps for setting up a local environment
 
-Clone the repository to a directory of your choice. We'll use PROJECT_ROOT in our examples. Then change to the PROJECT_ROOT directory.
+Clone the repository to a directory of your choice. We'll use `PROJECT_ROOT` in our examples. Then change to the `PROJECT_ROOT` directory.
 
 ```sh
 % git clone https://github.com/carbon-io/carbon-io PROJECT_ROOT
@@ -22,7 +22,7 @@ Create and activate a new Python environment.
 % source PROJECT_ROOT/env/bin/activate
 ```
 
-Note: In the example above, the virtualenv is named 'env' and resides in the project's root directory. It is possible to have this environment reside elsewhere - that is left to the developer's discretion.
+Note: In the example above, the virtualenv is named "env" and resides in the project's root directory. It is possible to have this environment reside elsewhere - that is left to the developer's discretion.
 
 Carbon.io is built on several core components. To include the documentation for these components, include the submodules.
 
@@ -48,7 +48,7 @@ http://localhost:8000/
 
 This example demonstrates how to update and push the documentation for the Atom project.
 
-From the PROJECT_ROOT, change to the `atom/docs` directory.
+From the `PROJECT_ROOT`, change to the `atom/docs` directory.
 
 ```sh
 % cd PROJECT_ROOT/docs/packages/carbon-core/docs/packages/atom/docs
@@ -86,7 +86,7 @@ Now that the changes have been pushed, reset the submodule pointers from the car
 % git submodule update --init --recursive
 ```
 
-Run the update script. The script will compare each local submodule's version to the remote. In this case, the new Atom tag will be found. If the new tag version satisfies the parent module (Carbon Core) dependency specification, the new tag version will be pulled in locally. The script will then modify the Carbon Core `package.json` version, tag and commit the package, and push the new tag to master. The script is recursive and will continue until the top-level carbon-io package is updated.
+Run the update script. The script will compare each local submodule's version to the remote. In this case, the new Atom tag will be found. If the new tag version satisfies the parent module ([`carbon-core`](https://github.com/carbon-io/carbon-core)) dependency specification, the new tag version will be pulled in locally. The script will then modify the `carbon-core` `package.json` version, tag and commit the package, and push the new tag to master. The script is recursive and will continue until the top-level `carbon-io` package is updated.
 
 ```sh
 % cd PROJECT_ROOT
@@ -101,14 +101,14 @@ When prompted, select 'y' to commit the changes made by the script for each pare
 
 This example will perform the same modifications as above using the Atom project. However, we will instead create our changes in a branch and create a pull request.
 
-From the PROJECT_ROOT, change to the `atom/docs` directory and checkout the master branch.
+From the `PROJECT_ROOT`, change to the `atom/docs` directory and checkout the master branch.
 
 ```sh
 % cd PROJECT_ROOT/docs/packages/carbon-core/docs/packages/atom/docs
 % git checkout master
 ```
 
-Checkout your development branch using the -b option. Checking out a separate branch will allow you to create a pull request to master.
+Checkout your development branch using the `-b` option. Checking out a separate branch will allow you to create a pull request to master.
 
 ```sh
 % git checkout -b "YOUR_DEV_BRANCH_NAME"
