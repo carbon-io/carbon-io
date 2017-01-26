@@ -112,18 +112,20 @@ def get_out_of_date_submodules(checkout=False):
 
                         if version != latest_matching_tag:
                             if semver.compare(latest_matching_tag, version) == -1:
-                                logging.info("*** WARNING: The version for %s (%s) succeeds the latest matching tag (%s)!!! ***\n" 
-                                    % (name, version, latest_matching_tag))
-                            else:
-                                out_of_date_submodules.append({"path" : dirpath,
-                                                               "parent_path" : parent})
+                                raise RuntimeError("The current version of %s (%s) succeeds the latest matching tag (%s)!!! The submodule tree requires manual intervention" % (name, version, latest_matching_tag))
+
+                            out_of_date_submodules.append({"path" : dirpath,
+                                                           "parent_path" : parent})
                             if checkout:
                                 if has_children(dirpath):
                                     # parent node, will be tagging so fetch and checkout master
+                                    logging.info("Checking out master branch for %s...\n" % name)
                                     do_checkout(dirpath, 'master')
                                 else:
                                     # leaf node, fetch and checkout latest_matching_tag
+                                    logging.info("Checking out latest matching tag (%s) for %s...\n" % (latest_matching_tag, name))
                                     do_checkout(dirpath, "v" + latest_matching_tag)
+
 
     return out_of_date_submodules
 
