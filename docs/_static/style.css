@@ -1,12 +1,39 @@
+
+/* Font Family Declarations */
+
 @import url("//hello.myfonts.net/count/310ef1");
-@font-face {font-family: 'Rational-ExtraLight';src: url('webfonts/310EF1_0_0.eot');src: url('webfonts/310EF1_0_0.eot?#iefix') format('embedded-opentype'),url('webfonts/310EF1_0_0.woff2') format('woff2'),url('webfonts/310EF1_0_0.woff') format('woff'),url('webfonts/310EF1_0_0.ttf') format('truetype');}
-@font-face {font-family: 'Rational-Light';src: url('webfonts/310EF1_1_0.eot');src: url('webfonts/310EF1_1_0.eot?#iefix') format('embedded-opentype'),url('webfonts/310EF1_1_0.woff2') format('woff2'),url('webfonts/310EF1_1_0.woff') format('woff'),url('webfonts/310EF1_1_0.ttf') format('truetype');}
-@font-face {font-family: 'Rational-SemiBold';src: url('webfonts/310EF1_2_0.eot');src: url('webfonts/310EF1_2_0.eot?#iefix') format('embedded-opentype'),url('webfonts/310EF1_2_0.woff2') format('woff2'),url('webfonts/310EF1_2_0.woff') format('woff'),url('webfonts/310EF1_2_0.ttf') format('truetype');}
- 
+
+@font-face {
+    font-family: 'Rational-ExtraLight';
+    src: url('webfonts/310EF1_0_0.eot');
+    src: url('webfonts/310EF1_0_0.eot?#iefix') format('embedded-opentype'),
+         url('webfonts/310EF1_0_0.woff2') format('woff2'),
+         url('webfonts/310EF1_0_0.woff') format('woff'),
+         url('webfonts/310EF1_0_0.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Rational-Light';
+    src: url('webfonts/310EF1_1_0.eot');
+    src: url('webfonts/310EF1_1_0.eot?#iefix') format('embedded-opentype'),
+         url('webfonts/310EF1_1_0.woff2') format('woff2'),
+         url('webfonts/310EF1_1_0.woff') format('woff'),
+         url('webfonts/310EF1_1_0.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Rational-SemiBold';
+    src: url('webfonts/310EF1_2_0.eot');
+    src: url('webfonts/310EF1_2_0.eot?#iefix') format('embedded-opentype'),
+         url('webfonts/310EF1_2_0.woff2') format('woff2'),
+         url('webfonts/310EF1_2_0.woff') format('woff'),
+         url('webfonts/310EF1_2_0.ttf') format('truetype');
+}
+
 
 body {
     font-size: 16px;
-    font-family: "Roboto";
+    font-family: "Roboto", Helvetica, Arial, sans-serif;
     background-color: rgba(251, 251, 251, 1);
     padding: 0px 0 50px 0;
     min-height: 100%;
@@ -23,74 +50,70 @@ body {
     top: 106px;
 }
 
-header {
+.header {
     position: fixed;
-    height: 106px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 118px;
     width: 100%;
-    background-color: white;
-    font-family: helvetica, sans-serif;
-    border-bottom-style: solid;
-    border-bottom-color: rgb(195,195,195);
-    border-bottom-width: 1px;
+    background-color: #373F46;
+    /* INSERT GRAPHIC HERE
+    background-image: url("http://www.fg-a.com/wallpapers/geo-shapes-black-1280b.jpg");*/
+    background-size: cover;
+    background-position: center;
     z-index: 1000;
+    padding: 0 26px;
 }
 
-header .wrap {
-    margin: 0 auto;
-    padding: 0 30px;
+.header--logo-wrap {
+    text-decoration: none;
+    margin-right: auto;
 }
 
-header div.mobile-menu {
+.header--logo {
+    height: 38px;
+}
+
+.header div.mobile-menu {
     display: none;
 }
 
-header .logo {
-    float: left;
-    margin-top: 23px;
-}
-
-header .logo a{
-    display: block;
-    text-indent: -999em;
-    width: 168px;
-    height: 60px;
-    background-image: url('carbon-io.svg'), none; 
-    background-repeat: no-repeat;
-    background-size: 168px 60px;
-}
-
-header .links {
+.header--links {
     text-align: right;
     padding-top: 43px;
+    position: absolute;
+    bottom: 14px;
+    right: 26px;
 }
 
-header .links a{
+.header--link,
+.header--link:visited {
+    transition: color 0.1s ease-out;
     text-decoration: none;
-    font-family: "Roboto";
-    font-weight: 300;
-    font-style: normal;
+    font-weight: normal;
     font-size: 15px;
-    color: #444;
-    margin-right: 30px;
-    padding-bottom: 3px;
+    color: #B3BCC7;
+    padding-bottom: 10px;
 }
 
-header .links a.docs {
+.header--link + .header--link {
+    margin-left: 26px;
+}
+
+.header--link.s-active {
     font-family: Roboto;
-    font-weight: 600;
-    font-style: normal;
     font-size: 15px;
-    color: #111;
-    line-height: 17px;
+    color: #ffffff;
     text-decoration: none;
-    border-bottom: 3px solid #b30f36;
+    border-bottom: 4px solid #F8B71D;
 }
 
-header .links a:hover {
-    color: rgba(179, 15, 54, 1);
+.header--link:hover {
+    color: #ffffff;
 }
 
-header .links a:selected {
+.header--link:selected {
     color: #111;
     font-weight: 600;
 }
@@ -127,16 +150,19 @@ nav.wy-nav-top a {
 
 .wy-nav-side {
     background-attachment: fixed;
-    background: white;
+    background: #F8F8F9;
     border-right: thin solid #dcdcdc;
     width: 320px;
     padding-bottom: 100px;
-    top: 106px;
+    top: 118px;
 }
 
 .wy-side-nav-search {
-    background-color: white;
+    background-color: transparent;
     height: 65px;
+    padding: 0;
+    margin: 0;
+    width: 100%;
 }
 
 .wy-side-nav-search > div.version {
@@ -157,51 +183,49 @@ nav.wy-nav-top a {
     color: rgba(153, 153, 153, 1);
 }
 
-#rtd-search-form {
+.wy-form {
     border-color: transparent;
     border: none;
+    display: flex;
+    align-items: center;
+    height: 65px;
+    padding-left: 22px;
+    border-bottom: 1px solid #C6C6C7;
 }
 
-#rtd-search-form:before {
+.wy-form:before {
     content: " ";
-    mask: url('search-icon.svg');
-    -webkit-mask-image: url('search-icon.svg');
-    height: 17px;
-    width: 17px;
-    position: relative;
-    margin-top: 20px;
-    margin-left: 10px;
-    float: left;
-    background-color: #b30f36;
+    background-image: url('search-icon.svg');
+    background-size: cover;
+    background-position: center;
+    flex-shrink: 0;
+    height: 16px;
+    width: 16px;
 }
 
-#rtd-search-form input {
-    font-family: "Roboto";
-    font-weight: 400;
-    font-style: normal;
+.wy-form > input {
+    font-family: "Roboto", Helvetica, Arial, sans-serif;
     font-size: 15px;
     line-height: 28px;
     border-color: transparent;
     border: none;
     box-shadow: none;
-    width: 90%;
-    height: 65px;
+    flex-grow: 2;
     padding-left: 10;
     padding-top: 0;
+    background-color: transparent;
 }
 
-.wy-menu {
-    font-family: Roboto;
-    font-weight: 300;
-    font-style: normal;
-    font-size: 15px;
-    color: rgba(179, 15, 54, 1);
-    font-weight: 300;
+.wy-menu a {
     text-decoration: none;
 }
 
 .wy-menu-vertical {
     width: 320px;
+}
+
+.wy-menu-vertical > ul {
+    background: transparent;
 }
 
 .wy-menu-vertical li.toctree-l1 > a span.toctree-expand {
@@ -225,39 +249,85 @@ nav.wy-nav-top a {
     content: '\f0d7';
 }
 
-.wy-menu ul li.toctree-l1 a {
-    color: rgba(17, 17, 17, 1);
-    font-size: 16px;
-    font-family: "Roboto";
-    font-weight: 400;
-    font-style: normal;
-    line-height: 18px;
-    border-top-style: solid;
-    border-width: 1px;
-    border-color: rgb(220,220,220);
+.wy-menu-vertical .toctree-l1:hover > a,
+.wy-menu-vertical .toctree-l2:hover > a,
+.wy-menu-vertical .toctree-l3:hover > a,
+.wy-menu-vertical .toctree-l4:hover > a {
+    color: #007BBD;
+    background-color: transparent;
 }
 
+.wy-menu-vertical .current .toctree-l2 > a:hover ,
+.wy-menu-vertical .current .toctree-l3 > a:hover ,
+.wy-menu-vertical .current .toctree-l4 > a:hover {
+    background-color: transparent;
+}
 
-.wy-menu-vertical li.toctree-l1.current li.toctree-l2>a {
-    color: rgba(102, 102, 102, 1);
+.toctree-l1 {
+    border-bottom: 1px solid #C6C6C7;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    background-color: transparent;
+}
+
+.wy-menu-vertical .toctree-l1.current {
+    background-color: transparent;
+}
+
+.wy-menu-vertical .toctree-l1 > a {
+    padding-top: 14px;
+    padding-bottom: 14px;
+}
+
+.wy-menu-vertical .toctree-l1.current > a {
+    background-color: #F8B71D;
+    color: #ffffff;
+    border-bottom: 0;
+}
+
+.wy-menu-vertical .toctree-l1.current:hover > a {
+    background-color: #dca627;
+}
+
+.toctree-l1 > a {
+    color: #636d75;
+    font-size: 16px;
+    width: 100%;
+}
+
+.toctree-l2 > a {
+    line-height: 1.8em;
     font-size: 14px;
-    font-family: "Roboto";
-    font-weight: 400;
-    font-style: normal;
-    line-height: 16px;
-    border-style: none;
-    padding: 9px 0px 7px 40px;
+    color: #636d75;
+    padding-left: 42px;
+}
+
+.wy-menu-vertical li.toctree-l2 {
+    width: 100%;
+}
+
+.toctree-l1 ul {
+    width: 100%;
+}
+
+.wy-menu-vertical li.current {
+    background-color: transparent;
+}
+
+.wy-menu-vertical li.toctree-l2.current > a {
+    background-color: transparent;
+    width: 100%;
 }
 
 .wy-menu-vertical li.toctree-l2.current li.toctree-l3>a {
     color: rgba(102, 102, 102, 1);
     font-size: 14px;
-    font-family: "Roboto";
-    font-weight: 400;
-    font-style: normal;
-    line-height: 16px;
+    line-height: 1.5em;
     border-style: none;
     padding: 9px 0px 7px 60px;
+    background: transparent;
 }
 
 .wy-menu-vertical li.toctree-l3.current li.toctree-l4>a {
@@ -274,39 +344,8 @@ nav.wy-nav-top a {
 }
 
 .wy-menu ul li.toctree-l1.current > a {
-    font-size: 16px;
-    font-family: "Roboto";
-    font-style: normal;
     line-height: 18px;
-    border-top-style: solid;
-    border-width: 1px;
-    border-color: rgb(220,220,220);
     padding: 13px 0px 11px 20px;
-}
-
-.wy-menu-vertical ul,
-.wy-menu-vertical li.toctree-l1.current li.toctree-l2>a,
-.wy-menu-vertical li.toctree-l2.current li.toctree-l3>a,
-.wy-menu-vertical li.toctree-l3.current li.toctree-l4>a
-{
-    background: white;
-}
-
-.wy-menu-vertical li.toctree-l1.current > a.current,
-.wy-menu-vertical li.toctree-l1.current li.toctree-l2.current > a.current,
-.wy-menu-vertical li.toctree-l2.current li.toctree-l3.current > a.current,
-.wy-menu-vertical li.toctree-l3.current li.toctree-l4.current > a.current {
-    background: rgba(194, 63, 94, 1);
-    color: rgba(255, 255, 255, 1);
-}
-
-.wy-menu ul a:hover,
-.wy-menu-vertical li.toctree-l1.current li.toctree-l2>a:hover,
-.wy-menu-vertical li.toctree-l2.current li.toctree-l3>a:hover,
-.wy-menu-vertical li.toctree-l3.current li.toctree-l4>a:hover
-{
-    background: rgba(242, 242, 242, 1);
-    color: rgba(179, 15, 54, 1);
 }
 
 .wy-menu-vertical li.on a, .wy-menu-vertical li.current>a {
@@ -315,10 +354,6 @@ nav.wy-nav-top a {
 
 .wy-menu-vertical li.current a {
     border-right: none;
-}
-
-.wy-menu-vertical ul:last-child li.toctree-l1:last-child a {
-    border-bottom-style: solid;
 }
 
 .wy-menu-vertical li.toctree-l1.current li.toctree-l2:last-child {
@@ -719,7 +754,7 @@ div.rst-versions div.rst-other-versions a {
         font-family: FontAwesome;
         font-size: 30px;
         line-height: 50px;
-        color: rgba(194, 63, 94, 1);
+        color: #ffffff;
     }
 
     header div.mobile-menu a:before {

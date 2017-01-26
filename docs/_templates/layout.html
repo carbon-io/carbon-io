@@ -6,21 +6,21 @@
 {% endblock %}
 
 {% block extrabody %}
-<header id="mlab-header">
-    <div class="wrap">
-        <div class="mobile-menu">
-            <a href="#"></a>
-        </div>
-        <div class="logo" alt="carbon.io logo">
-            <a href="/"></a>
-        </div>
-        <div class="links">
-            <a href="http://carbon.io/">Home</a>
-            <a class="docs" href="/">Docs</a>
-            <a href="/">Tutorials</a>
-            <a target="_blank" href="https://github.com/carbon-io/carbon-io">GitHub</a>
-            <a href="https://docs.carbon.io/en/latest/support/index.html">Support</a>
-        </div>
+<header id="mlab-header" class="header">
+    <div class="mobile-menu">
+        <a href="#"></a>
+    </div>
+
+    <a href="/" class="header--logo-wrap">
+        <img src="/_static/carbon-io.svg" class="header--logo" />
+    </a>
+
+    <div class="header--links">
+        <a class="header--link" href="http://carbon.io/">Home</a>
+        <a class="header--link s-active" href="/">Docs</a>
+        <a class="header--link" href="/">Tutorials</a>
+        <a class="header--link" target="_blank" href="https://github.com/carbon-io/carbon-io">GitHub</a>
+        <a class="header--link" href="https://docs.carbon.io/en/latest/support/index.html">Support</a>
     </div>
 </header>
 {% endblock %}
