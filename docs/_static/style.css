@@ -338,10 +338,6 @@ nav.wy-nav-top a {
     font-size: 16px;
 }
 
-ul:last-child .toctree-l1:last-child > a { border-bottom: 1px solid #C6C6C7; }
-
-ul:last-child .toctree-l1.current:last-child > a { border-bottom: 0; }
-
 .toctree-l1.current > a {
     background-color: #F8B71D;
     color: #ffffff;
@@ -592,14 +588,14 @@ div[class^='highlight'] pre {
     margin-top: 4px;
 }
 
-.rst-content table.field-list th.field-name {
+.field-list .field-name {
     font-family: "Roboto";
     padding: 0px;
     font-size: 15px;
 }
 
-.rst-content table.field-list td.field-body {
-    padding: 5px 5px 5px 30px !important;
+.field-list .field-body {
+    padding: 5px 5px 5px 30px;
     font-family: "Roboto";
     font-size: 15px;
 }
@@ -729,6 +725,7 @@ footer span.commit code {
 @media screen and (max-width:768px) {
     h1 {
         font-size: 34px;
+        word-break: break-word;
     }
 
     .header {
@@ -767,6 +764,8 @@ footer span.commit code {
 
     .wy-breadcrumbs {
         margin-top: 1rem;
+        overflow-x: auto;
+        width: 100%;
     }
 
     .wy-breadcrumbs a {
@@ -807,6 +806,28 @@ footer span.commit code {
 
     section.wy-nav-content-wrap.shift nav.wy-nav-top > a {
         margin-left: 16px;
+    }
+
+    .class > dd,
+    .function > dd {
+        margin-left: 11px;
+    }
+
+    blockquote {
+        margin-left: 11px;
+        margin-right: 11px;
+    }
+
+    .document a {
+        word-break: break-word;
+    }
+
+    .document ul {
+        padding-left: 22px;
+    }
+
+    .field-list .field-body {
+        padding-left: 11px;
     }
 
     .rst-versions {
