@@ -73,7 +73,7 @@ p a {
 
 h1 {
     font-size: 48px;
-    line-height: 1.5rem;
+    line-height: 1.2em;
     margin-top: 4rem;
     margin-bottom: 2rem;
     font-weight: lighter;
@@ -83,7 +83,7 @@ h1 {
 
 h2 {
     font-size: 30px;
-    line-height: 32px;
+    line-height: 1.5em;
     margin-top: 3rem;
     margin-bottom: 1rem;
     font-family: Rational;
@@ -93,7 +93,7 @@ h2 {
 
 h3 { 
     font-size: 18px;
-    line-height: 23px;
+    line-height: 1.5em;
     margin: 22px 0px 8px 0px;
     font-family: Rational;
     font-weight: bold;
@@ -107,7 +107,7 @@ h4 {
     font-weight: bold;
     color: #49647D;
     text-transform: none;
-    line-height: 20px;
+    line-height: 1.5em;
     margin: 22px 0px 8px 0px;
     text-align: left;
 }
@@ -231,6 +231,7 @@ nav.wy-nav-top a {
     background: #F8F8F9;
     border-right: 1px solid #E5E5E5;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .wy-nav-side ul { list-style: none; }
@@ -250,9 +251,9 @@ nav.wy-nav-top a {
 
 .wy-form:before {
     content: " ";
-    background-image: url('search-icon.svg');
-    background-size: cover;
-    background-position: center;
+    mask: url('search-icon.svg');
+    -webkit-mask: url('search-icon.svg');
+    background-color: #007BBD;
     flex-shrink: 0;
     height: 16px;
     width: 16px;
@@ -269,7 +270,7 @@ nav.wy-nav-top a {
     padding-left: 10;
     padding-top: 0;
     background-color: transparent;
-    margin-left: 22px;
+    margin-left: 11px;
     border: none;
     outline: none;
 }
@@ -322,9 +323,16 @@ nav.wy-nav-top a {
     background-color: transparent;
 }
 
-.toctree-l1 > a {
+.wy-menu-vertical .toctree-l1 > a {
+    padding-left: 22px;
+    padding-right: 22px;
+}
+
+.toctree-l1 > a,
+.wy-menu-vertical .toctreee-l1 > a {
     width: 100%;
-    padding: 14px 22px;
+    padding-top: 14px;
+    padding-bottom: 14px;
     color: #636d75;
     border-top: 1px solid #C6C6C7;
     font-size: 16px;
@@ -332,27 +340,15 @@ nav.wy-nav-top a {
 
 ul:last-child .toctree-l1:last-child > a { border-bottom: 1px solid #C6C6C7; }
 
+ul:last-child .toctree-l1.current:last-child > a { border-bottom: 0; }
+
 .toctree-l1.current > a {
     background-color: #F8B71D;
     color: #ffffff;
     border-bottom: 0;
     line-height: 18px;
-    /*font-weight: bold;*/
     letter-spacing: 0.5px;
 }
-
-/*.toctree-l1.current > a.current:before {
-    content: "";
-    height: 0;
-    width: 0;
-    display: inline-block;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 5px solid white;
-    flex-shrink: 0;
-    margin-bottom: 0.25em;
-    margin-right: 0.5rem;
-}*/
 
 .toctree-l1.current > a:hover {
     background-color: #dca627;
@@ -583,6 +579,7 @@ div[class^='highlight'] pre {
     background-color: #616A74;
     padding: 14px 12px 12px 19px;
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
     border-radius: 4px;
 }
 
@@ -607,6 +604,15 @@ div[class^='highlight'] pre {
     font-size: 15px;
 }
 
+.highlighttable {
+    width: 100%;
+    border-spacing: 0;
+}
+
+.highlighttable .linenos {
+   width: 40px;
+}
+
 
 
 /* Footer */
@@ -621,15 +627,20 @@ footer  hr {
     margin-top: 75px;
     display: flex;
     justify-content: space-between;
+    flex-direction: row-reverse;
     align-items: center;
 }
 
-.rst-footer-buttons a:first-child:before {
+.rst-footer-buttons > a:first-child:last-child {
+    margin: auto;
+}
+
+.fa-arrow-circle-left:last-child:before {
     content: "←";
     margin-right: 0.5rem;
 }
 
-.rst-footer-buttons a:last-child:after {
+.fa-arrow-circle-right:first-child:after {
     content: "→";
     margin-left: 0.5rem;
 }
@@ -716,52 +727,53 @@ footer span.commit code {
 }
 
 @media screen and (max-width:768px) {
-    header {
-        position: relative;
+    h1 {
+        font-size: 34px;
+    }
+
+    .header {
+        display: block;
         height: auto;
+        padding: 0;
     }
 
-    header div.mobile-menu {
+    .header--logo-wrap {
+        padding: 2rem 0 0.5rem;
+        text-align: center;
         display: block;
-        float: right;
-        padding: 28px 12px;
     }
 
-    header div.mobile-menu a {
-        font-family: FontAwesome;
-        font-size: 30px;
-        line-height: 50px;
-        color: #ffffff;
+    .header--logo {
+        height: 36px;
     }
 
-    header div.mobile-menu a:before {
-        content: '\f150';
-    }
-
-    header.shift div.mobile-menu a:before {
-        content: '\f151';
-    }
-
-    header div.links {
-        display: none;
+    .header--links {
+        position: static;
+        display: flex;
+        justify-content: space-between;
         padding-top: 0px;
-        margin: 0px auto;
+        text-align: center
     }
 
-    header div.links a {
-        display: block;
+    .header--link {
         padding: 12px 0px;
         text-align: center;
+        flex-grow: 1;
     }
 
-    header div.logo {
-        float: none;
-        margin-top: 0px;
-        padding: 23px 0px;
+    .header--link + .header--link {
+        margin-left: 0;
     }
 
-    header.shift div.links {
-        display: block;
+    .wy-breadcrumbs {
+        margin-top: 1rem;
+    }
+
+    .wy-breadcrumbs a {
+        padding: 0.5rem;
+        background-color: #F8F8F9;
+        border: 1px solid #e5e5e5;
+        border-radius: 3px;
     }
 
     .wy-nav-side {
@@ -796,6 +808,22 @@ footer span.commit code {
     section.wy-nav-content-wrap.shift nav.wy-nav-top > a {
         margin-left: 16px;
     }
+
+    .rst-versions {
+        display: none;
+    }
+
+    .wy-body-for-nav {
+        padding-bottom: 0;
+    }
+
+    .toctree-wrapper ul {
+        -webkit-padding-start: 0;
+    }
+
+    footer {
+        padding-bottom: 0;
+    }
 }
 
 @media screen and (min-width:1400px) {
@@ -807,22 +835,3 @@ footer span.commit code {
         margin-left: 77px;
     }
 }
-
-
-::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-    color: rgba(153, 153, 153, 1);
-}
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-   color: rgba(153, 153, 153, 1);
-   opacity:  1;
-}
-::-moz-placeholder { /* Mozilla Firefox 19+ */
-   color: rgba(153, 153, 153, 1);
-   opacity:  1;
-}
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
-   color: rgba(153, 153, 153, 1);
-}
-
-
-
