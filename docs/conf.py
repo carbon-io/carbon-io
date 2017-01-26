@@ -122,6 +122,8 @@ html_theme_options = {
     'navigation_depth': 3,
 }
 
+html_style = 'style.css'
+
 # Add any paths that contain custom themes here, relative to this directory.
 html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 
