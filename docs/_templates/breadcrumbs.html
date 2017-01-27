@@ -1,11 +1,12 @@
 {% extends "!breadcrumbs.html" %}
 
 {% block breadcrumbs %}
-  <li><a href="{{ pathto(master_doc) }}">Docs</a> /</li>
+  <a href="{{ pathto(master_doc) }}">Docs</a>
+  <span>/</span>
     {% for doc in parents %}
-      <li><a href="{{ doc.link|e }}">{{ doc.title }}</a> /</li>
+      <a href="{{ doc.link|e }}">{{ doc.title }}</a> /
     {% endfor %}
-  <li>{{ title }}</li>
+  <span>{{ title }}</span>
 {% endblock %}
 
 {% block breadcrumbs_aside %}
