@@ -338,6 +338,12 @@ nav.wy-nav-top a {
     font-size: 16px;
 }
 
+.rst-content .toctree-l1 > a {
+    border-top: 0;
+    padding-bottom: 0;
+    padding-top: 1.5rem;
+}
+
 .toctree-l1.current > a {
     background-color: #F8B71D;
     color: #ffffff;
@@ -351,7 +357,7 @@ nav.wy-nav-top a {
     color: #ffffff;
 }
 
-.toctree-l1 > ul {
+.wy-menu-vertical .toctree-l1 > ul {
     height: 0;
     overflow: hidden;
 }
@@ -382,7 +388,7 @@ li.current { background-color: transparent; }
     width: 100%;
 }
 
-.toctree-l2 > ul {
+.wy-menu-vertical .toctree-l2 > ul {
     height: 0;
     overflow: hidden;
 }
@@ -422,9 +428,10 @@ li.current { background-color: transparent; }
 }
 
 
-/*4th Level*/
 
-.toctree-l4 > a {
+/* 4th Level */
+
+.wy-menu-vertical .toctree-l4 > a {
     color: rgba(102, 102, 102, 1);
     font-size: 14px;
     line-height: 16px;
