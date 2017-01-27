@@ -1,4 +1,4 @@
-Sphinx>=1.3.5
+Sphinx>=1.4
 sphinx-autobuild>=0.5.2
 git+https://github.com/snide/sphinx_rtd_theme@9230829
 livereload==2.4.0
