@@ -77,11 +77,14 @@ def has_children(dirpath):
     else:
         return False
 
-def do_checkout(dirpath, branch):
+def do_checkout(dirpath, branch, merge=False):
     cwd = os.getcwd()
     fetch_cmd = "git fetch"
     checkout_cmd = "git checkout %s" % branch
-    merge_cmd = "git merge --no-edit origin %s"  % branch
+    # We only want to merge when we will be pushing to remote
+    # i.e. when we are on master branch (parent module)
+    if merge:
+        merge_cmd = "git merge --no-edit %s"  % branch
     os.chdir(dirpath)
     subprocess.call(shlex.split(fetch_cmd))
     subprocess.call(shlex.split(checkout_cmd))
@@ -120,7 +123,7 @@ def get_out_of_date_submodules(checkout=False):
                                 if has_children(dirpath):
                                     # parent node, will be tagging so fetch and checkout master
                                     logging.info("Checking out master branch for %s...\n" % name)
-                                    do_checkout(dirpath, 'master')
+                                    do_checkout(dirpath, 'master', merge=True)
                                 else:
                                     # leaf node, fetch and checkout latest_matching_tag
                                     logging.info("Checking out latest matching tag (%s) for %s...\n" % (latest_matching_tag, name))
@@ -137,7 +140,7 @@ def build_parent_submodule_update_order(deepest_depth):
             if depth <= deepest_depth:
                 parent_submodules[dirpath] = depth
             # checkout in case this parent was not out of date
-            do_checkout(dirpath, 'master')
+            do_checkout(dirpath, 'master', merge=True)
     parent_submodules = sorted(parent_submodules, key=parent_submodules.get, reverse=True)
     return parent_submodules
 
