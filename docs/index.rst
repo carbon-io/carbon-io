@@ -18,5 +18,5 @@ Contents:
   carbon-core/index
   packages/carbond/docs/ref/index
   examples.rst 
-  faq/index
+..  faq/index
   support.rst
