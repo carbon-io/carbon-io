@@ -626,6 +626,12 @@ div[class^='highlight'] pre {
     white-space: pre;
 }
 
+div[class^="highlight"] .linenos pre {
+    background-color: #6a747f;
+    border-right: 1px solid rgba(155, 165, 167, 0.2);
+    color: #9ba5a7;
+}
+
 .rst-content dl.function dt {
     font-family: "Roboto";
     font-size: 15px;
@@ -653,8 +659,15 @@ div[class^='highlight'] pre {
     min-width: 100%;
 }
 
+.highlighttable .code {
+    padding-left: 0;
+}
+
 .linenos {
     width: 45px;
+    padding-left: 0;
+    padding-right: 0;
+    overflow: hidden;
 }
 
 
