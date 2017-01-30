@@ -291,11 +291,20 @@ nav.wy-nav-top a {
 
 /* All Levels */
 
+.wy-menu-vertical .toctree-l2 > a,
+.wy-menu-vertical .toctree-l3 > a,
+.wy-menu-vertical .toctree-l4 > a {
+    position: relative;
+    padding-left: 44px;
+}
+
 .toctree-l1 > a,
 .toctree-l2 > a,
 .toctree-l3 > a,
 .toctree-l4 > a {
     color: #636d75;
+    overflow: hidden;
+    position: relative;
 }
 
 .toctree-l1 > a:hover,
@@ -310,6 +319,19 @@ nav.wy-nav-top a {
 .toctree-l4:last-child {
     padding-bottom: 1rem;
 }
+
+.toctree-l1.current > a + ul,
+.toctree-l2.current > a + ul,
+.toctree-l3.current > a + ul,
+.toctree-l4.current > a + ul {
+    margin-top: 0.25rem;
+}
+
+
+.toctree-l1 > ul,
+.toctree-l2 > ul,
+.toctree-l3 > ul,
+.toctree-l4 > ul { padding-left: 22px; }
 
 
 
@@ -344,7 +366,7 @@ nav.wy-nav-top a {
     padding-top: 1.5rem;
 }
 
-.toctree-l1.current > a {
+ul.current > .toctree-l1.current > a {
     background-color: #F8B71D;
     color: #ffffff;
     border-bottom: 0;
@@ -352,7 +374,7 @@ nav.wy-nav-top a {
     letter-spacing: 0.5px;
 }
 
-.toctree-l1.current > a:hover {
+ul.current > .toctree-l1.current > a:hover {
     background-color: #dca627;
     color: #ffffff;
 }
@@ -364,14 +386,35 @@ nav.wy-nav-top a {
 
 .toctree-l1.current > ul { height: auto; }
 
-.toctree-l1 .toctree-expand { display: none; }
+.toctree-expand {
+    content: "";
+    height: 0;
+    width: 0;
+    display: inline-block;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #007BBD;
+    flex-shrink: 0;
+    margin-bottom: 0.25em;
+    margin-right: 0.5rem;
+    transform: rotate(-90deg);
+    position: absolute; 
+    top: 0;
+    bottom: 0;
+    left: 22px;
+    margin: auto;
+}
+
+.current > a > .toctree-expand { transform: rotate(0); }
+
+.toctree-l1 > a > .toctree-expand { display: none; }
 
 
 
 /* 2nd Level */
 
 .toctree-l2 {
-    padding-top: 0.5rem;
+    padding-top: 0.75rem;
     padding-bottom: 0.25rem;
 }
 
@@ -393,20 +436,7 @@ li.current { background-color: transparent; }
     overflow: hidden;
 }
 
-.toctree-l2.current > a { font-weight: bold; }
-
-.toctree-l2.current > a.current:before {
-    content: "";
-    height: 0;
-    width: 0;
-    display: inline-block;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 5px solid #007BBD;
-    flex-shrink: 0;
-    margin-bottom: 0.25em;
-    margin-right: 0.5rem;
-}
+.toctree-l2.current > a.current { font-weight: bold; }
 
 .toctree-l2.current > ul { height: auto; }
 
@@ -426,7 +456,6 @@ li.current { background-color: transparent; }
     border-style: none;
     background: transparent;
 }
-
 
 
 /* 4th Level */
@@ -529,11 +558,11 @@ code {
     background-color: inherit;
     font-family: "Roboto Mono";
     letter-spacing: 0.3px;
-    font-size: inherit;
+    font-size: 0.9rem;
     background-color: #F0F0F1;
     color: #283037;
     padding: 1px 0.3rem;
-    margin: 0 3åpx;
+    margin: 0 3px;
     border-radius: 3px;
 }
 
@@ -608,12 +637,28 @@ div[class^='highlight'] pre {
 }
 
 .highlighttable {
-    width: 100%;
+    display: block;
     border-spacing: 0;
 }
 
+.highlighttable tbody {
+    display: block;
+}
+
+.highlighttable tr {
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+}
+
 .highlighttable .linenos {
-   width: 40px;
+   width: 45px;
+   flex-shrink: 0;
+}
+
+.highlighttable .code {
+    flex-grow: 1;
+    overflow-x: auto;
 }
 
 
