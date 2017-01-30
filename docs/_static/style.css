@@ -650,6 +650,11 @@ div[class^='highlight'] pre {
 .highlighttable {
     border-collapse: collapse;
     border-spacing: 0;
+    min-width: 100%;
+}
+
+.linenos {
+    width: 45px;
 }
 
 
