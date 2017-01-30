@@ -231,6 +231,7 @@ nav.wy-nav-top a {
     background: #F8F8F9;
     border-right: 1px solid #E5E5E5;
     overflow-y: auto;
+    overflow-x: hidden
     -webkit-overflow-scrolling: touch;
 }
 
@@ -296,6 +297,7 @@ nav.wy-nav-top a {
 .wy-menu-vertical .toctree-l4 > a {
     position: relative;
     padding-left: 44px;
+    padding-right: 0.5rem;
 }
 
 .toctree-l1 > a,
@@ -529,12 +531,6 @@ li.current a { border-right: none; }
 .rst-content hr { border: 0; }
 
 .rst-content {
-    margin: 0 auto;
-    text-align: left;
-    height: auto;
-}
-
-.rst-content {
     color: #6A6F73;
     margin: 0px 0px 22px 0px;
     line-height: 28px;
@@ -602,6 +598,11 @@ code {
     color: #9cdeff;
 }
 
+.hll {
+    background-color: #4b545e;
+    display: block;
+}
+
 div[class^='highlight'] pre {
     font-family: "Roboto Mono";
     font-size: 0.9rem;
@@ -609,7 +610,7 @@ div[class^='highlight'] pre {
     letter-spacing: 0.3px;
     color: #e1e9f1;
     background-color: #616A74;
-    padding: 14px 12px 12px 19px;
+    padding: 12px 12px;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     border-radius: 4px;
