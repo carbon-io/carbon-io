@@ -590,6 +590,10 @@ code {
     margin: 0px;
 }
 
+.c1 {
+    color: #9ba5a7;
+}
+
 .k {
     color: #F4A158;
 }
@@ -600,7 +604,13 @@ code {
 
 .hll {
     background-color: #4b545e;
+    margin: 0 -12px;
+    padding: 0 12px;
     display: block;
+}
+
+div[class^='highlight'] {
+    overflow-x: auto;
 }
 
 div[class^='highlight'] pre {
@@ -613,7 +623,7 @@ div[class^='highlight'] pre {
     padding: 12px 12px;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    border-radius: 4px;
+    white-space: pre;
 }
 
 .rst-content dl.function dt {
@@ -638,28 +648,8 @@ div[class^='highlight'] pre {
 }
 
 .highlighttable {
-    display: block;
+    border-collapse: collapse;
     border-spacing: 0;
-}
-
-.highlighttable tbody {
-    display: block;
-}
-
-.highlighttable tr {
-    display: flex;
-    width: 100%;
-    max-width: 100%;
-}
-
-.highlighttable .linenos {
-   width: 45px;
-   flex-shrink: 0;
-}
-
-.highlighttable .code {
-    flex-grow: 1;
-    overflow-x: auto;
 }
 
 
