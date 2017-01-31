@@ -1,12 +1,13 @@
 {
     "name": "carbon-io", 
-    "version": "0.2.21", 
+    "version": "0.3.0", 
     "description": "Carbon.io", 
     "keywords": [
         "carbon.io"
     ], 
     "contributors": [
-        "Will Shulman <will@objectlabs.com>"
+        "Will Shulman <will@objectlabs.com>",
+        "Greg Banks <greg@objectlabs.com>"
     ], 
     "repository": {
         "type": "git", 
@@ -20,8 +21,8 @@
         "node": ">=4.0.0"
     }, 
     "dependencies": {
-        "@carbon-io/carbon-core": "0.2.x", 
-        "@carbon-io/carbond": "0.2.x"
+        "@carbon-io/carbon-core": "0.3.x", 
+        "@carbon-io/carbond": "0.3.x"
     }, 
     "preferGlobal": false
 }
