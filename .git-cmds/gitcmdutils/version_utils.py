@@ -88,7 +88,8 @@ def do_checkout(dirpath, branch, merge=False):
     os.chdir(dirpath)
     subprocess.call(shlex.split(fetch_cmd))
     subprocess.call(shlex.split(checkout_cmd))
-    subprocess.call(shlex.split(merge_cmd))
+    if merge:
+        subprocess.call(shlex.split(merge_cmd))
     os.chdir(cwd)
 
 def get_out_of_date_submodules(checkout=False):
