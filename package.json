@@ -1,12 +1,12 @@
 {
     "name": "carbon-io", 
-    "version": "0.3.0", 
+    "version": "0.3.1", 
     "description": "Carbon.io", 
     "keywords": [
         "carbon.io"
     ], 
     "contributors": [
-        "Will Shulman <will@objectlabs.com>",
+        "Will Shulman <will@objectlabs.com>", 
         "Greg Banks <greg@objectlabs.com>"
     ], 
     "repository": {
