@@ -21,8 +21,18 @@
         "node": ">=4.0.0"
     }, 
     "dependencies": {
-        "@carbon-io/carbon-core": "0.3.x", 
+        "@carbon-io/carbon-core": "git://github.com/carbon-io/carbon-core.git#test-exports", 
         "@carbon-io/carbond": "0.3.x"
+    },
+    "devDependencies": {
+        "@carbon-io/atom": "0.4.x",
+        "@carbon-io/bond": "0.3.x",
+        "@carbon-io/test-tube": "0.3.x",
+        "mockery": "2.0.x",
+        "sinon": "1.17.x"
+    },
+    "scripts": {
+        "test": "node test"
     }, 
     "preferGlobal": false
 }
