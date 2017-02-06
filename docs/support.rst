@@ -2,11 +2,11 @@
 Support
 =======
 
-`Google Group <www.mlab.com>`_: A community forum best suited for open-ended, opinion-based, or general questions about Carbon.io. You can post and view the forum via the Google Groups web interface or subscribe to updates via email.
+`StackOverflow <https://stackoverflow.com/questions/tagged/carbon.io>`_: If you have an answerable question about a piece of code using Carbon.io, please `visit StackOverflow and create a question <https://stackoverflow.com/questions/tagged/carbon.io>`_ tagged "carbon.io".
 
-`StackOverflow <www.mlab.com>`_: A community forum for specific programming questions with factual, rather than subjective, answers. For more ideas on framing your question appropriately, see `How to Ask <http://stackoverflow.com/help/how-to-ask>`_. You can search and submit tickets with the tag "carbon-io".
+`Carbon forums <http://forums.carbon.io/>`_: A community forum best suited for open-ended or general questions about Carbon.io.
 
 Reporting issues
 ~~~~~~~~~~~~~~~~
 
-`GitHub issues <https://github.com/carbon-io/carbon-io/issues>`_: I actually really like the policy here: https://github.com/strongloop/loopback/wiki/Reporting-issues.
+`GitHub issues <https://github.com/carbon-io/carbon-io/issues>`_: You can find known issues or report new issues by visiting `Carbon.io GitHub Issues <https://github.com/carbon-io/carbon-io/issues>`_.
