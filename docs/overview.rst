@@ -24,7 +24,10 @@ This documentation is organized into the following sections:
   Module reference for all functions, and classes that comprise
   Carbon.io. 
   
-:ref:`Examples <examples-label>`
+:ref:`Examples <Examples>`
   Working examples using Carbon.io. 
+
+:ref:`Support <Support>`
+  Resources for getting help and reporting bug fixes.
 
 
