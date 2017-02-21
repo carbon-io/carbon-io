@@ -27,13 +27,6 @@ def prompt(question):
     else:
         return prompt("Please enter 'y' or 'n'...")
 
-def get_depth_for_deepest_parent(submodules):
-    deepest_parent_depth = 0
-    for submodule in submodules:
-        parent_depth = submodule['parent_path'].count('docs/packages')
-        deepest_parent_depth = parent_depth if parent_depth > deepest_parent_depth else deepest_parent_depth
-    return deepest_parent_depth
-
 def main():
     parser = \
         argparse.ArgumentParser(description='update carbon-io docs-common')
