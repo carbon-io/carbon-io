@@ -55,7 +55,7 @@ def main():
 
     if not opts.non_interactive and prompt("Would you like to commit this change?"):
 
-        with open(submodule + '/package.json', 'w') as f:
+        with open('../package.json', 'w') as f:
             json.dump(package_json, f, indent=4, sort_keys=False)
 
             cwd = os.getcwd()
