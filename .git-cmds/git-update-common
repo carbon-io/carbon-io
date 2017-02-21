@@ -53,7 +53,7 @@ def main():
     
     print(json.dumps(package_json, indent=4, sort_keys=False))
 
-    if not opts.non_interactive and not prompt("Would you like to commit this change?"):
+    if not opts.non_interactive and prompt("Would you like to commit this change?"):
 
         with open(submodule + '/package.json', 'w') as f:
             json.dump(package_json, f, indent=4, sort_keys=False)
