@@ -59,7 +59,7 @@ def main():
             json.dump(package_json, f, indent=4, sort_keys=False)
 
             cwd = os.getcwd()
-            os.chdir(submodule)
+            os.chdir('..')
 
             git_commit_command = "git commit -am \"bump version\""
             git_tag_command = "git tag -a v%s -m v%s" % (new_tag, new_tag)
