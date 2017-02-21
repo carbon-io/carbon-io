@@ -54,26 +54,25 @@ def main():
     print(json.dumps(package_json, indent=4, sort_keys=False))
 
     if not opts.non_interactive and not prompt("Would you like to commit this change?"):
-        continue
 
-    with open(submodule + '/package.json', 'w') as f:
-        json.dump(package_json, f, indent=4, sort_keys=False)
+        with open(submodule + '/package.json', 'w') as f:
+            json.dump(package_json, f, indent=4, sort_keys=False)
 
-    cwd = os.getcwd()
-    os.chdir(submodule)
+            cwd = os.getcwd()
+            os.chdir(submodule)
 
-    git_commit_command = "git commit -am \"bump version\""
-    git_tag_command = "git tag -a v%s -m v%s" % (new_tag, new_tag)
-    git_push_command = "git push --tags origin master"
+            git_commit_command = "git commit -am \"bump version\""
+            git_tag_command = "git tag -a v%s -m v%s" % (new_tag, new_tag)
+            git_push_command = "git push --tags origin master"
 
-    logging.info("Issuing git command: %s" % (git_commit_command))
-    subprocess.call(shlex.split(git_commit_command))
-    logging.info("Issuing git command: %s" % (git_tag_command))
-    subprocess.call(shlex.split(git_tag_command))
-    logging.info("Issuing git command: %s" % (git_push_command))
-    subprocess.call(shlex.split(git_push_command))
+            logging.info("Issuing git command: %s" % (git_commit_command))
+            subprocess.call(shlex.split(git_commit_command))
+            logging.info("Issuing git command: %s" % (git_tag_command))
+            subprocess.call(shlex.split(git_tag_command))
+            logging.info("Issuing git command: %s" % (git_push_command))
+            subprocess.call(shlex.split(git_push_command))
 
-    os.chdir(cwd)
+            os.chdir(cwd)
 
     return 0
 
