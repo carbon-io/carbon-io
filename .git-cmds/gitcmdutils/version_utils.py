@@ -77,7 +77,7 @@ def has_children(dirpath):
     else:
         return False
 
-def do_checkout(dirpath, branch, merge=False):
+def do_checkout(dirpath, branch, merge=False, pull=False):
     cwd = os.getcwd()
     fetch_cmd = "git fetch"
     checkout_cmd = "git checkout %s" % branch
@@ -90,6 +90,8 @@ def do_checkout(dirpath, branch, merge=False):
     subprocess.call(shlex.split(checkout_cmd))
     if merge:
         subprocess.call(shlex.split(merge_cmd))
+    if pull:
+        subprocess.call(shlex.split('git pull origin %s' % branch))
     os.chdir(cwd)
 
 def get_out_of_date_submodules(checkout=False):
