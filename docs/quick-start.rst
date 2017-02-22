@@ -13,7 +13,7 @@ The first step is to create a standard Node.js package:
         package.json
 
 
-Your ``package.json`` file should include ``carbon-io``
+Your ``package.json`` file should include ``carbon-io``. You can `find the latest package version number on NPM <https://www.npmjs.com/package/carbon-io>`_.
 
 ..  code-block:: sh
 
