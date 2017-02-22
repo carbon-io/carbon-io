@@ -12,6 +12,11 @@ Carbon.io Documentation
 .. toctree::
 
   packages/carbond/docs/guide/index
+
+.. toctree::
+  :maxdepth: 1
+  :titlesonly:
+
   carbon-core/index
 
 .. toctree::
@@ -22,8 +27,3 @@ Carbon.io Documentation
 
 .. toctree::
   examples.rst
-
-.. toctree::
-  :maxdepth: 1
-
-  support.rst
