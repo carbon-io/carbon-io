@@ -131,6 +131,47 @@ Commit your changes WITHOUT tagging and push your development branch.
 
 Go to the Atom GitHub repository and [create a pull request](https://github.com/carbon-io/atom/compare) to merge your changes into the master branch. When your changes are approved a collaborator on the repository will merge your changes and update the submodule pointer.
 
+## Example: Making changes to docs-common and pushing the changes live
+
+This example demonstrates how to update and push changes to the `docs-common` repository.
+
+From the `PROJECT_ROOT`, change to the `docs/common` directory.
+
+```sh
+% cd PROJECT_ROOT/docs/common
+```
+
+Checkout the master branch. This will configure `docs-common` to use the remote master branch HEAD reference and allow `push` and `pull` commands to work.
+
+```sh
+% git checkout master
+```
+
+Make your changes to `docs-common` and build the docs to review them locally. Sphinx has difficulty auto-updating CSS files, so you may need to run `make clean` after each file change.
+
+```sh
+% make clean && make livehtml
+
+http://localhost:8000
+```
+
+Commit your changes and push them to the master branch.
+
+```sh
+% git commit -am "commit message"
+% git push origin master
+```
+
+Make sure that any changes in your `carbon-io` repository are okay to be pushed. The update script will automatically push any changes in your `carbon-io` repository. Navigate to the `.git-cmds` folder which contains the update command and run the script.
+
+```sh
+cd $PROJECT_ROOT/.git-cmds
+./git-update-common -v
+```
+
+The script will output the package.json with the new version of `carbon-io`. You can follow the prompts to push the changes live.
+
+
 ## Running tests
 
 You can test the project by using ``tox``.
