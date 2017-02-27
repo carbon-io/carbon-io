@@ -2,7 +2,7 @@
 Support
 =======
 
-`StackOverflow <https://stackoverflow.com/questions/tagged/carbon.io>`_: If you have an answerable question about a piece of code using Carbon.io, please `visit StackOverflow and create a question <https://stackoverflow.com/questions/tagged/carbon.io>`_ tagged "carbon.io".
+`StackOverflow <https://stackoverflow.com/questions/tagged/carbon.io>`_: If you have an answerable question about a piece of code using Carbon.io, please visit StackOverflow and create a question tagged "carbon.io".
 
 `Carbon forums <http://forums.carbon.io/>`_: A community forum best suited for open-ended or general questions about Carbon.io.
 
