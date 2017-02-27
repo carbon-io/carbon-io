@@ -31,7 +31,6 @@ This documentation is organized into the following sections:
   :maxdepth: 2
   :hidden:
 
-  overview.rst
   introduction.rst
   quick-start.rst
 
