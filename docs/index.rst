@@ -44,7 +44,7 @@ This documentation is organized into the following sections:
   :titlesonly:
   :hidden:
 
-  carbon-core/index
+  packages/carbon-core/docs/index
 
 .. toctree::
   :maxdepth: 1
