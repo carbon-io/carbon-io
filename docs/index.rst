@@ -4,27 +4,27 @@ Carbon.io Documentation
 
 This documentation is organized into the following sections:
 
-:ref:`Introduction <Introduction>`
+:ref:`Introduction <carbon-io-intro>`
   A short high-level description of what the Carbon.io framework is. 
 
-:ref:`Quick start <Quick start>`
+:ref:`Quick start <carbon-io-quick-start>`
   A short step-by-step guide to deploying a Service. 
 
-:ref:`Server guide <Server guide (Carbond)>`
+:ref:`Server guide <carbond-server-guide>`
   The server framework, Carbond. This is how you build APIs and 
   microservices.
 
-:ref:`Carbon core <Carbon core>`
+:ref:`Carbon core <carbon-core-docs>`
   The core libraries used in Carbon.io.
 
-:ref:`Module reference <Class Reference>`
+:ref:`Module reference <carbon-io-class-ref>`
   Module reference for all functions, and classes that comprise
   Carbon.io. 
   
-:ref:`Examples <Examples>`
+:ref:`Examples <carbon-io-examples>`
   Working examples using Carbon.io. 
 
-:ref:`Support <Support>`
+:ref:`Support <carbon-io-support>`
   Resources for getting help and reporting bug fixes.
 
 .. toctree::
@@ -51,7 +51,7 @@ This documentation is organized into the following sections:
   :titlesonly:
   :hidden:
 
-  packages/carbond/docs/ref/index
+  ref/index
 
 .. toctree::
   :hidden:

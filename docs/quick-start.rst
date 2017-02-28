@@ -1,3 +1,5 @@
+.. _carbon-io-quick-start:
+
 ===========
 Quick Start
 ===========
