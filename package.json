@@ -22,12 +22,14 @@
     }, 
     "dependencies": {
         "@carbon-io/carbon-core": "git://github.com/carbon-io/carbon-core.git#test-exports", 
-        "@carbon-io/carbond": "0.3.x"
+        "@carbon-io/carbond": "git://github.com/carbon-io/carbond.git#test-exports"
     },
     "devDependencies": {
-        "@carbon-io/atom": "0.4.x",
-        "@carbon-io/bond": "0.3.x",
-        "@carbon-io/test-tube": "0.3.x",
+        "@carbon-io/atom": "git://github.com/carbon-io/atom.git#test-exports",
+        "@carbon-io/bond": "git://github.com/carbon-io/bond.git#test-exports",
+        "@carbon-io/test-tube": "git://github.com/carbon-io/test-tube.git#test-exports",
+        "@carbon-io/carbon-client-node": "git://github.com/carbon-io/carbon-client-node.git#test-exports",
+        "@carbon-io/leafnode": "git://github.com/carbon-io/leafnode.git#test-exports",
         "mockery": "2.0.x",
         "sinon": "1.17.x"
     },
