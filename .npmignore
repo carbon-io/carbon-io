@@ -41,7 +41,7 @@ npm-debug.log
 *#
 
 # vim
-.sw[po]
+*.sw[po]
 vim.session
 
 # IntelliJ IDEA
