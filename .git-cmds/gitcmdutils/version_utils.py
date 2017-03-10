@@ -11,7 +11,13 @@ import sys
 GITHUB_RAW = 'https://api.github.com/repos'
 GITHUB_ORG = 'carbon-io'
 SCOPE = '@carbon-io/'
-PATH_BLACKLIST = ['node_modules', '.git', 'docs/_build']
+PATH_BLACKLIST = [
+    'node_modules',
+    '.git',
+    ['docs', '_build'],
+    'code-frags'
+]
+SCRIPT_HOME = os.path.dirname(os.path.dirname(__file__))
 
 def strip_scope(name):
     return name.replace(SCOPE,'')
@@ -63,16 +69,24 @@ def log_info(package_name, parent, dep_semver, latest_matching_tag, current_vers
     logging.info("current version: %s\n" % current_version)
 
 def exists_in_submodule_path(dirpath):
-    if os.path.exists(dirpath):
-        for subpath in PATH_BLACKLIST:
-            if subpath in dirpath:
+    if not os.path.exists(dirpath):
+        return False
+    parts = dirpath.split(os.path.sep)
+    for subpath in PATH_BLACKLIST:
+        subpath = [subpath] if not isinstance(subpath, list) else subpath
+        for i in xrange(len(parts)):
+            match = True
+            for j in xrange(len(subpath)):
+                if i+j >= len(parts) or subpath[j] != parts[i+j]:
+                    match = False
+                    break
+            if match:
                 return False
-        return True
-    return False
+    return True
 
 def has_children(dirpath):
     # TODO: if /docs/packages exists, also check if it is empty
-    if exists_in_submodule_path(dirpath + '/docs/packages'):
+    if exists_in_submodule_path(os.path.join(dirpath, 'docs/packages')):
         return True
     else:
         return False
@@ -96,24 +110,24 @@ def do_checkout(dirpath, branch, merge=False, pull=False):
 
 def get_out_of_date_submodules(checkout=False):
     out_of_date_submodules = []
-    for (dirpath,_,_) in os.walk('..'):
-        if exists_in_submodule_path(dirpath + '/package.json'):
-            with open(dirpath + '/package.json') as package:
+    for (dirpath,_,_) in os.walk(os.path.abspath(os.path.join(SCRIPT_HOME, '..'))):
+        if exists_in_submodule_path(os.path.join(dirpath, 'package.json')):
+            with open(os.path.join(dirpath, 'package.json')) as package:
                 package_json = json.load(package)
                 name = strip_scope(package_json['name'])
                 version = package_json['version']
-                parent = dirpath[:-(len('/docs/packages/' + name)-1)]
+                parent = dirpath[:dirpath.rfind('/docs/packages/')+1]
                 if parent:
-                    with open(parent + '/package.json') as parent_package:
+                    with open(os.path.join(parent, 'package.json')) as parent_package:
                         parent_package_json = json.load(parent_package)
                         parent_name = parent_package_json['name']
                         parent_dependencies = parent_package_json['dependencies']
                         latest_matching_tag = \
                             find_latest_matching_tag_for_package(name, parent_dependencies[add_scope(name)])
-                        log_info(name, 
-                                 strip_scope(parent_name), 
-                                 parent_dependencies[add_scope(name)], 
-                                 latest_matching_tag, 
+                        log_info(name,
+                                 strip_scope(parent_name),
+                                 parent_dependencies[add_scope(name)],
+                                 latest_matching_tag,
                                  version)
 
                         if version != latest_matching_tag:
