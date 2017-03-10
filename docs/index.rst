@@ -47,7 +47,7 @@ This documentation is organized into the following sections:
   packages/carbon-core/docs/index
 
 .. toctree::
-  :maxdepth: 1
+  :maxdepth: 2
   :titlesonly:
   :hidden:
 
