@@ -4,7 +4,8 @@
 Class Reference
 ===============
 
-:ref:`Carbond <carbond-class-ref>`
-    Carbond class reference.
-:ref:`Test-Tube <test-tube-class-ref>`
-    Test-tube class reference.
+.. toctree::
+    :maxdepth: 1
+
+    ../../packages/carbond/docs/ref/index
+    ../../packages/carbon-core/docs/packages/test-tube/docs/ref/index
