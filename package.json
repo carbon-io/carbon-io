@@ -25,6 +25,7 @@
         "@carbon-io/carbond": "git://github.com/carbon-io/carbond.git#test-exports"
     },
     "devDependencies": {
+        "tmp": "0.0.x",
         "@carbon-io/atom": "git://github.com/carbon-io/atom.git#test-exports",
         "@carbon-io/bond": "git://github.com/carbon-io/bond.git#test-exports",
         "@carbon-io/test-tube": "git://github.com/carbon-io/test-tube.git#test-exports",
