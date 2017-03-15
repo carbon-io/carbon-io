@@ -98,7 +98,7 @@ def do_checkout(dirpath, branch, merge=False, pull=False):
     # We only want to merge when we will be pushing to remote
     # i.e. when we are on master branch (parent module)
     if merge:
-        merge_cmd = "git merge --no-edit %s"  % branch
+        merge_cmd = "git merge --no-edit origin %s"  % branch
     os.chdir(dirpath)
     subprocess.call(shlex.split(fetch_cmd))
     subprocess.call(shlex.split(checkout_cmd))
