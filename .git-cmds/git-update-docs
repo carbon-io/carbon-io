@@ -87,6 +87,9 @@ def main():
 
         os.chdir(cwd)
 
+    if len(version_utils.get_out_of_date_submodules()) > 0:
+        raise RuntimeError("!!! ERROR: VALIDATION CONTINUES TO DETECT OUT OF DATE SUBMODULES AFTER UPDATE. MANUAL INTERVENTION REQUIRED !!!")
+
     return 0
 
 if __name__ == '__main__':
