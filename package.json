@@ -1,6 +1,6 @@
 {
     "name": "carbon-io", 
-    "version": "0.4.16", 
+    "version": "0.4.17", 
     "description": "Carbon.io", 
     "keywords": [
         "carbon.io"
@@ -32,7 +32,8 @@
         "@carbon-io/carbon-client-node": "0.4.x",
         "@carbon-io/leafnode": "0.2.x",
         "mockery": "2.0.x",
-        "sinon": "1.17.x"
+        "sinon": "1.17.x",
+        "express": "4.x"
     },
     "scripts": {
         "test": "node test"
