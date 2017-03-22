@@ -8,6 +8,7 @@ from __future__ import (
 )
 
 from collections import OrderedDict
+import gitcmdutils.semver as semver
 import json
 import subprocess
 import shlex
@@ -30,35 +31,41 @@ def main():
     
     parser.add_argument('-v', '--verbose', action='store_true',
                         help='log debug output')
-    parser.add_argument("message", help="Commit message goes here")
-    parser.add_argument("version", help="Version string goes here")
+    parser.add_argument('-p', '--patch', action='store_true',
+                        help='increment patch version')
+    parser.add_argument('-m', '--minor', action='store_true',
+                        help='increment minor version')
+    parser.add_argument('-M', '--major', action='store_true',
+                        help='increment major version')
 
     opts = parser.parse_args(sys.argv[1:])
 
     logging.basicConfig(level=logging.DEBUG if opts.verbose else logging.WARN)
 
     try:
-        with open('../package.json', 'r') as f:
+        with open('package.json', 'r') as f:
             package_json = json.load(f, object_pairs_hook=OrderedDict)
             version = package_json['version']
+       
+        new_tag = ""
+        if opts.patch:
+            new_tag = semver.bump_patch(version) 
+        if opts.minor:
+            new_tag = semver.bump_minor(version)
+        if opts.major:
+            new_tag = semver.bump_major(version)
 
-        if version != opts.version:
-            print("package.json version (%s) does not match supplied version (%s)!!" % (version, opts.version))
-            make_package_version_change = prompt("Would you like to change package.json to use the supplied version(%s)?" % (opts.version))
-            if make_package_version_change: 
-                with open('../package.json', 'w') as f:
-                    package_json['version'] = opts.version
-                    json.dump(package_json, f, indent=4, sort_keys=False)
-            else:
-                print("Aborting, please make sure that the package.json version matches the supplied tag.")
-                sys.exit(1)
+        with open('package.json', 'w') as f:
+            package_json['version'] = new_tag
+            json.dump(package_json, f, indent=4, sort_keys=False)
         
-        with open('../package.json', 'r') as f:
+        with open('package.json', 'r') as f:
             print(json.dumps(package_json, indent=4, sort_keys=False))
-        
+       
+        print("!!! Changing version from %s to %s !!!" % (version, new_tag))
         if prompt("Would you like to push this change?"):
-            git_commit_command = "git commit -am \"%s\"" % opts.message
-            git_tag_command = "git tag -a v%s -m v%s" % (opts.version, opts.version)
+            git_commit_command = "git commit -am \"Bump version\""
+            git_tag_command = "git tag -a v%s -m v%s" % (new_tag, new_tag)
             git_push_command = "git push --tags origin master"
 
             print("Issuing git command: %s" % (git_commit_command))
