@@ -43,7 +43,7 @@ def main():
     logging.basicConfig(level=logging.DEBUG if opts.verbose else logging.WARN)
 
     try:
-        with open('package.json', 'r') as f:
+        with open('../package.json', 'r') as f:
             package_json = json.load(f, object_pairs_hook=OrderedDict)
             version = package_json['version']
        
@@ -55,11 +55,11 @@ def main():
         if opts.major:
             new_tag = semver.bump_major(version)
 
-        with open('package.json', 'w') as f:
+        with open('../package.json', 'w') as f:
             package_json['version'] = new_tag
             json.dump(package_json, f, indent=4, sort_keys=False)
         
-        with open('package.json', 'r') as f:
+        with open('../package.json', 'r') as f:
             print(json.dumps(package_json, indent=4, sort_keys=False))
        
         print("!!! Changing version from %s to %s !!!" % (version, new_tag))
