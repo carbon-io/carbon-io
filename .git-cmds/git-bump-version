@@ -55,15 +55,13 @@ def main():
         if opts.major:
             new_tag = semver.bump_major(version)
 
-        with open('../package.json', 'w') as f:
-            package_json['version'] = new_tag
-            json.dump(package_json, f, indent=4, sort_keys=False)
-        
-        with open('../package.json', 'r') as f:
-            print(json.dumps(package_json, indent=4, sort_keys=False))
+        package_json['version'] = new_tag
+        print(json.dumps(package_json, indent=4, sort_keys=False))
        
         print("!!! Changing version from %s to %s !!!" % (version, new_tag))
         if prompt("Would you like to push this change?"):
+            with open('../package.json', 'w') as f:
+                json.dump(package_json, f, indent=4, sort_keys=False)
             git_commit_command = "git commit -am \"Bump version\""
             git_tag_command = "git tag -a v%s -m v%s" % (new_tag, new_tag)
             git_push_command = "git push --tags origin master"
