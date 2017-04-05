@@ -27,7 +27,7 @@ def prompt(question):
 
 def main():
     parser = \
-        argparse.ArgumentParser(description='Check that commits are error free with respect to tags and package.json versions')
+        argparse.ArgumentParser(description='Bump the version of a node repository')
     
     parser.add_argument('-v', '--verbose', action='store_true',
                         help='log debug output')
