@@ -31,6 +31,7 @@
         "@carbon-io/test-tube": "0.6.x",
         "@carbon-io/carbon-client-node": "0.6.x",
         "@carbon-io/leafnode": "0.4.x",
+        "@carbon-io/fibers": "0.7.x",
         "mockery": "2.0.x",
         "sinon": "1.17.x",
         "express": "4.x"
