@@ -1,29 +1,29 @@
 {
-    "name": "carbon-io",
-    "version": "0.6.0",
-    "description": "Carbon.io",
+    "name": "carbon-io", 
+    "version": "0.6.1", 
+    "description": "Carbon.io", 
     "keywords": [
         "carbon.io"
-    ],
+    ], 
     "contributors": [
-        "Will Shulman <will@objectlabs.com>",
+        "Will Shulman <will@objectlabs.com>", 
         "Greg Banks <greg@objectlabs.com>"
-    ],
+    ], 
     "repository": {
-        "type": "git",
+        "type": "git", 
         "url": "https://github.com/carbon-io/carbon-io.git"
-    },
-    "main": "./lib/carbon-io.js",
+    }, 
+    "main": "./lib/carbon-io.js", 
     "directories": {
         "lib": "./lib"
-    },
+    }, 
     "engines": {
         "node": ">=4.0.0"
-    },
+    }, 
     "dependencies": {
-        "@carbon-io/carbon-core": "0.6.x",
+        "@carbon-io/carbon-core": "0.6.x", 
         "@carbon-io/carbond": "0.6.x"
-    },
+    }, 
     "devDependencies": {
         "tmp": "0.0.x",
         "@carbon-io/atom": "0.7.x",
@@ -35,9 +35,9 @@
         "mockery": "2.0.x",
         "sinon": "1.17.x",
         "express": "4.x"
-    },
+    }, 
     "scripts": {
         "test": "node test"
-    },
+    }, 
     "preferGlobal": false
 }
