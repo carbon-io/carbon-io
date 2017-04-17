@@ -1,6 +1,6 @@
 {
     "name": "carbon-io", 
-    "version": "0.6.2", 
+    "version": "0.6.3", 
     "description": "Carbon.io", 
     "keywords": [
         "carbon.io"
@@ -25,15 +25,15 @@
         "@carbon-io/carbond": "0.6.x"
     }, 
     "devDependencies": {
-        "tmp": "0.0.x",
-        "@carbon-io/atom": "0.7.x",
-        "@carbon-io/bond": "0.6.x",
-        "@carbon-io/test-tube": "0.6.x",
-        "@carbon-io/carbon-client-node": "0.6.x",
-        "@carbon-io/leafnode": "0.4.x",
-        "@carbon-io/fibers": "0.7.x",
-        "mockery": "2.0.x",
-        "sinon": "1.17.x",
+        "tmp": "0.0.x", 
+        "@carbon-io/atom": "0.7.x", 
+        "@carbon-io/bond": "0.6.x", 
+        "@carbon-io/test-tube": "0.6.x", 
+        "@carbon-io/carbon-client-node": "0.6.x", 
+        "@carbon-io/leafnode": "0.4.x", 
+        "@carbon-io/fibers": "0.7.x", 
+        "mockery": "2.0.x", 
+        "sinon": "1.17.x", 
         "express": "4.x"
     }, 
     "scripts": {
