@@ -40,6 +40,12 @@ def main():
 
     logging.basicConfig(level=logging.DEBUG if opts.verbose else logging.WARN)
 
+    # Check that the current doc tree is up to date. If it is not, old pointers
+    # can be pushed, making the docs out of date. Fail here
+
+    if len(version_utils.get_out_of_date_submodules()) > 0:
+        raise RuntimeError("!!! ERROR: DOC TREE IS OUT OF DATE, PLEASE PULL LATEST TREE BEFORE UPDATING COMMON DOCS !!!")
+
     new_tag = None
 
     logging.info("\nPulling in latest docs-common...")
