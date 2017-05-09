@@ -2,13 +2,18 @@
 
 ## Requirements
 
-We use [Sphinx](http://www.sphinx-doc.org/en/stable/) to build the documentation. In order to use Sphinx, you will need to have [Python](https://www.python.org/downloads/) installed. 
+We use [Sphinx](http://www.sphinx-doc.org/en/stable/) to build the
+documentation. In order to use Sphinx, you will need to have
+[Python](https://www.python.org/downloads/) installed. 
 
-We recommend using [virtualenv](https://virtualenv.readthedocs.org/en/latest/index.html) to create isolated Python environments and will use it in our examples below.
+We recommend using
+[virtualenv](https://virtualenv.readthedocs.org/en/latest/index.html) to create
+isolated Python environments and will use it in our examples below.
 
 ## Steps for setting up a local environment
 
-Clone the repository to a directory of your choice. We'll use `PROJECT_ROOT` in our examples. Then change to the `PROJECT_ROOT` directory.
+Clone the repository to a directory of your choice. We'll use `PROJECT_ROOT` in
+our examples. Then change to the `PROJECT_ROOT` directory.
 
 ```sh
 % git clone https://github.com/carbon-io/carbon-io PROJECT_ROOT
@@ -22,9 +27,12 @@ Create and activate a new Python environment.
 % source PROJECT_ROOT/env/bin/activate
 ```
 
-Note: In the example above, the virtualenv is named "env" and resides in the project's root directory. It is possible to have this environment reside elsewhere - that is left to the developer's discretion.
+Note: In the example above, the virtualenv is named "env" and resides in the
+project's root directory. It is possible to have this environment reside
+elsewhere - that is left to the developer's discretion.
 
-Carbon.io is built on several core components. To include the documentation for these components, include the submodules.
+Carbon.io is built on several core components. To include the documentation for
+these components, include the submodules.
 
 ```sh
 % git submodule update --init --recursive
@@ -46,7 +54,8 @@ http://localhost:8000/
 
 ## Example: Making changes to a submodule's documentation and pushing the changes live
 
-This example demonstrates how to update and push the documentation for the Atom project.
+This example demonstrates how to update and push the documentation for the Atom
+project.
 
 From the `PROJECT_ROOT`, change to the `atom/docs` directory.
 
@@ -54,13 +63,15 @@ From the `PROJECT_ROOT`, change to the `atom/docs` directory.
 % cd PROJECT_ROOT/docs/packages/carbon-core/docs/packages/atom/docs
 ```
 
-Checkout the master branch. This will configure Atom to use the remote master branch HEAD reference and allow `push` and `pull` commands to work.
+Checkout the master branch. This will configure Atom to use the remote master
+branch HEAD reference and allow `push` and `pull` commands to work.
 
 ```sh
 % git checkout master
 ```
 
-Make your changes to the documentation and build the docs to review them locally. You should build the docs from the Atom `docs` folder.
+Make your changes to the documentation and build the docs to review them
+locally. You should build the docs from the Atom `docs` folder.
 
 ```sh
 % pwd
@@ -71,7 +82,10 @@ PROJECT_ROOT/docs/packages/carbon-core/docs/packages/atom/docs
 http://localhost:8000
 ```
 
-Once the changes are finalized, open the Atom `package.json` file and bump the version number. Commit the changes, create a new tag, and push to master. **Note: the tag and tag message must match and use the convention "vMajor.Minor.Patch".**
+Once the changes are finalized, open the Atom `package.json` file and bump the
+version number. Commit the changes, create a new tag, and push to master.
+**Note: the tag and tag message must match and use the convention
+"vMajor.Minor.Patch".**
 
 ```sh
 % git commit -am "commit message"
@@ -79,14 +93,24 @@ Once the changes are finalized, open the Atom `package.json` file and bump the v
 % git push --tags origin master
 ```
 
-Now that the changes have been pushed, reset the submodule pointers from the carbon-io root directory. This is required for the [documentation update script](https://github.com/carbon-io/carbon-io/blob/master/.git-cmds/git-update-docs) to work.
+Now that the changes have been pushed, reset the submodule pointers from the
+carbon-io root directory. This is required for the [documentation update
+script](https://github.com/carbon-io/carbon-io/blob/master/.git-cmds/git-update-docs)
+to work.
 
 ```sh
 % cd PROJECT_ROOT
 % git submodule update --init --recursive
 ```
 
-Run the update script. The script will compare each local submodule's version to the remote. In this case, the new Atom tag will be found. If the new tag version satisfies the parent module ([`carbon-core`](https://github.com/carbon-io/carbon-core)) dependency specification, the new tag version will be pulled in locally. The script will then modify the `carbon-core` `package.json` version, tag and commit the package, and push the new tag to master. The script is recursive and will continue until the top-level `carbon-io` package is updated.
+Run the update script. The script will compare each local submodule's version
+to the remote. In this case, the new Atom tag will be found. If the new tag
+version satisfies the parent module
+([`carbon-core`](https://github.com/carbon-io/carbon-core)) dependency
+specification, the new tag version will be pulled in locally. The script will
+then modify the `carbon-core` `package.json` version, tag and commit the
+package, and push the new tag to master. The script is recursive and will
+continue until the top-level `carbon-io` package is updated.
 
 ```sh
 % cd PROJECT_ROOT
@@ -99,16 +123,20 @@ When prompted, select 'y' to commit the changes made by the script for each pare
 
 ## Example: Making changes to a submodule's documentation and creating a pull request
 
-This example will perform the same modifications as above using the Atom project. However, we will instead create our changes in a branch and create a pull request.
+This example will perform the same modifications as above using the Atom
+project. However, we will instead create our changes in a branch and create a
+pull request.
 
-From the `PROJECT_ROOT`, change to the `atom/docs` directory and checkout the master branch.
+From the `PROJECT_ROOT`, change to the `atom/docs` directory and checkout the
+master branch.
 
 ```sh
 % cd PROJECT_ROOT/docs/packages/carbon-core/docs/packages/atom/docs
 % git checkout master
 ```
 
-Checkout your development branch using the `-b` option. Checking out a separate branch will allow you to create a pull request to master.
+Checkout your development branch using the `-b` option. Checking out a separate
+branch will allow you to create a pull request to master.
 
 ```sh
 % git checkout -b "YOUR_DEV_BRANCH_NAME"
@@ -129,11 +157,15 @@ Commit your changes WITHOUT tagging and push your development branch.
 % git push origin YOUR_DEV_BRANCH_NAME
 ```
 
-Go to the Atom GitHub repository and [create a pull request](https://github.com/carbon-io/atom/compare) to merge your changes into the master branch. When your changes are approved a collaborator on the repository will merge your changes and update the submodule pointer.
+Go to the Atom GitHub repository and [create a pull
+request](https://github.com/carbon-io/atom/compare) to merge your changes into
+the master branch. When your changes are approved a collaborator on the
+repository will merge your changes and update the submodule pointer.
 
 ## Example: Making changes to docs-common and pushing the changes live
 
-This example demonstrates how to update and push changes to the `docs-common` repository.
+This example demonstrates how to update and push changes to the `docs-common`
+repository.
 
 From the `PROJECT_ROOT`, change to the `docs/common` directory.
 
@@ -141,13 +173,16 @@ From the `PROJECT_ROOT`, change to the `docs/common` directory.
 % cd PROJECT_ROOT/docs/common
 ```
 
-Checkout the master branch. This will configure `docs-common` to use the remote master branch HEAD reference and allow `push` and `pull` commands to work.
+Checkout the master branch. This will configure `docs-common` to use the remote
+master branch HEAD reference and allow `push` and `pull` commands to work.
 
 ```sh
 % git checkout master
 ```
 
-Make your changes to `docs-common` and build the docs to review them locally. Sphinx has difficulty auto-updating CSS files, so you may need to run `make clean` after each file change.
+Make your changes to `docs-common` and build the docs to review them locally.
+Sphinx has difficulty auto-updating CSS files, so you may need to run `make
+clean` after each file change.
 
 ```sh
 % make clean && make livehtml
@@ -162,14 +197,18 @@ Commit your changes and push them to the master branch.
 % git push origin master
 ```
 
-Make sure that any changes in your `carbon-io` repository are okay to be pushed. The update script will automatically push any changes in your `carbon-io` repository. Navigate to the `.git-cmds` folder which contains the update command and run the script.
+Make sure that any changes in your `carbon-io` repository are okay to be
+pushed. The update script will automatically push any changes in your
+`carbon-io` repository. Navigate to the `.git-cmds` folder which contains the
+update command and run the script.
 
 ```sh
 cd $PROJECT_ROOT/.git-cmds
 ./git-update-common -v
 ```
 
-The script will output the package.json with the new version of `carbon-io`. You can follow the prompts to push the changes live.
+The script will output the package.json with the new version of `carbon-io`.
+You can follow the prompts to push the changes live.
 
 
 ## Running tests
@@ -178,3 +217,18 @@ You can test the project by using ``tox``.
 Simply run it in the root directory::
 
     tox
+
+## Building Documentation for Development and Production
+
+Currently, the documentation can be built in two modes: "development" and
+"production". When building documentation in "development" mode (the default),
+output guarded by the ``.. ifconfig:: carbonio_env != 'prod'`` or `todo
+<http://www.sphinx-doc.org/en/stable/ext/todo.html>`_ directives will be
+included.
+
+To toggle "development" or "production" mode, simply set the environment
+variable ``CARBONIO_DEV_ENV`` to "dev" or "prod," respectively.
+
+Additionally, it should be noted that "production" is the default mode when
+building on `Read the Docs <https://readthedocs.com>`_.
+
