@@ -33,8 +33,10 @@
         "@carbon-io/leafnode": "0.4.x", 
         "@carbon-io/fibers": "0.7.x", 
         "mockery": "2.0.x", 
-        "sinon": "1.17.x", 
-        "express": "4.x"
+        "sinon": "2.1.x", 
+        "express": "4.x",
+        "nock": "9.0.x",
+        "body-parser": "1.17.x"
     }, 
     "scripts": {
         "test": "node test"
