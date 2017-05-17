@@ -17,9 +17,9 @@ This documentation is organized into the following sections:
 :ref:`Carbon core <carbon-core-docs>`
   The core libraries used in Carbon.io.
 
-:ref:`Module reference <carbon-io-class-ref>`
-  Module reference for all functions, and classes that comprise
-  Carbon.io. 
+.. :ref:`Module reference <carbon-io-class-ref>`
+..   Module reference for all functions, and classes that comprise
+..   Carbon.io. 
   
 :ref:`Examples <carbon-io-examples>`
   Working examples using Carbon.io. 
@@ -51,7 +51,7 @@ This documentation is organized into the following sections:
   :titlesonly:
   :hidden:
 
-  ref/index
+..  ref/index
 
 .. toctree::
   :hidden:

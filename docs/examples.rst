@@ -1,4 +1,4 @@
-.. _examples-label:
+.. _carbon-io-examples:
 
 ====================
 Examples
