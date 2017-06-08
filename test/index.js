@@ -12,4 +12,8 @@ __(function() {
       require('@carbon-io/carbond').$Test
     ]
   })
+}, function(err) {
+  if (err) {
+    process.exit(1)
+  }
 })
