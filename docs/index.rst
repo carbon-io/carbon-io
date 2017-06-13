@@ -8,14 +8,17 @@ This documentation is organized into the following sections:
   A short high-level description of what the Carbon.io framework is. 
 
 :ref:`Quick start <carbon-io-quick-start>`
-  A short step-by-step guide to deploying a Service. 
+  A short step-by-step guide to deploying a Service.
 
 :ref:`Server guide <carbond-server-guide>`
-  The server framework, Carbond. This is how you build APIs and 
+  The server framework, Carbond. This is how you build APIs and
   microservices.
 
 :ref:`Carbon core <carbon-core-docs>`
   The core libraries used in Carbon.io.
+
+:ref:`Client libraries <carbon-client-lib-docs>`
+  Client libraries used for Carbon.io.
 
 .. :ref:`Module reference <carbon-io-class-ref>`
 ..   Module reference for all functions, and classes that comprise
@@ -56,4 +59,5 @@ This documentation is organized into the following sections:
 .. toctree::
   :hidden:
 
+  client-libs.rst
   examples.rst
