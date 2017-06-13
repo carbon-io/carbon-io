@@ -50,6 +50,13 @@ This documentation is organized into the following sections:
   packages/carbon-core/docs/index
 
 .. toctree::
+  :maxdepth: 1
+  :titlesonly:
+  :hidden:
+
+  client-libs.rst
+
+.. toctree::
   :maxdepth: 2
   :titlesonly:
   :hidden:
@@ -59,5 +66,4 @@ This documentation is organized into the following sections:
 .. toctree::
   :hidden:
 
-  client-libs.rst
   examples.rst
