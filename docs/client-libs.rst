@@ -18,18 +18,6 @@ planned :)
    packages/carbon-core/docs/packages/bond/docs/packages/carbon-client-node/docs/packages/carbon-client/docs/index
    packages/carbon-core/docs/packages/bond/docs/packages/carbon-client-node/docs/index
 
-For the future:
 
-- C#
-- Go
-- Java (J2SE)
-- Java (Android)
-- Javascript (for clients / browsers)
-- Node.js
-- PHP
-- Python
-- Ruby
-- Scala
-- Swift
 
 
