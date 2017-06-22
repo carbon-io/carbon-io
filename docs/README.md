@@ -4,7 +4,7 @@
 
 We use [Sphinx](http://www.sphinx-doc.org/en/stable/) to build the
 documentation. In order to use Sphinx, you will need to have
-[Python](https://www.python.org/downloads/) installed. 
+[Python](https://www.python.org/downloads/) installed.
 
 We recommend using
 [virtualenv](https://virtualenv.readthedocs.org/en/latest/index.html) to create
@@ -117,7 +117,7 @@ continue until the top-level `carbon-io` package is updated.
 % git pull
 % cd .git-cmds
 % ./git-update-docs -v
- 
+
 When prompted, select 'y' to commit the changes made by the script for each parent submodule.
 ```
 
@@ -231,4 +231,3 @@ variable ``CARBONIO_DEV_ENV`` to "dev" or "prod," respectively.
 
 Additionally, it should be noted that "production" is the default mode when
 building on `Read the Docs <https://readthedocs.com>`_.
-
