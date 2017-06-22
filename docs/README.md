@@ -4,7 +4,7 @@
 
 We use [Sphinx](http://www.sphinx-doc.org/en/stable/) to build the
 documentation. In order to use Sphinx, you will need to have
-[Python](https://www.python.org/downloads/) installed. 
+[Python](https://www.python.org/downloads/) installed.
 
 We recommend using
 [virtualenv](https://virtualenv.readthedocs.org/en/latest/index.html) to create
@@ -47,6 +47,7 @@ Install the documentation dependencies.
 ## Run the project
 
 ```sh
+% cd docs
 % make clean && make livehtml
 
 http://localhost:8000/
@@ -117,9 +118,9 @@ continue until the top-level `carbon-io` package is updated.
 % git pull
 % cd .git-cmds
 % ./git-update-docs -v
- 
-When prompted, select 'y' to commit the changes made by the script for each parent submodule.
 ```
+
+When prompted, select 'y' to commit the changes made by the script for each parent submodule.
 
 ## Example: Making changes to a submodule's documentation and creating a pull request
 
@@ -203,8 +204,8 @@ pushed. The update script will automatically push any changes in your
 update command and run the script.
 
 ```sh
-cd $PROJECT_ROOT/.git-cmds
-./git-update-common -v
+% cd $PROJECT_ROOT/.git-cmds
+% ./git-update-common -v
 ```
 
 The script will output the package.json with the new version of `carbon-io`.
@@ -213,22 +214,23 @@ You can follow the prompts to push the changes live.
 
 ## Running tests
 
-You can test the project by using ``tox``.
-Simply run it in the root directory::
+You can test the project by using `tox`.
+Simply run it in the root directory:
 
-    tox
+```sh
+% tox
+```
 
 ## Building Documentation for Development and Production
 
 Currently, the documentation can be built in two modes: "development" and
 "production". When building documentation in "development" mode (the default),
-output guarded by the ``.. ifconfig:: carbonio_env != 'prod'`` or `todo
-<http://www.sphinx-doc.org/en/stable/ext/todo.html>`_ directives will be
+output guarded by the `.. ifconfig:: carbonio_env != 'prod'` or
+[`todo`](http://www.sphinx-doc.org/en/stable/ext/todo.html) directives will be
 included.
 
 To toggle "development" or "production" mode, simply set the environment
-variable ``CARBONIO_DEV_ENV`` to "dev" or "prod," respectively.
+variable `CARBONIO_DEV_ENV` to "dev" or "prod", respectively.
 
 Additionally, it should be noted that "production" is the default mode when
-building on `Read the Docs <https://readthedocs.com>`_.
-
+building on [Read the Docs](https://readthedocs.com).
