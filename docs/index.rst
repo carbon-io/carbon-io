@@ -17,8 +17,8 @@ This documentation is organized into the following sections:
 :ref:`Carbon core <carbon-core-docs>`
   The core libraries used in Carbon.io.
 
-:ref:`Client libraries <carbon-client-lib-docs>`
-  Client libraries used for Carbon.io.
+.. :ref:`Client libraries <carbon-client-lib-docs>`
+..  Client libraries used for Carbon.io.
 
 .. :ref:`Module reference <carbon-io-class-ref>`
 ..   Module reference for all functions, and classes that comprise
@@ -54,12 +54,11 @@ This documentation is organized into the following sections:
   :titlesonly:
   :hidden:
 
-  client-libs.rst
-
-.. toctree::
-  :maxdepth: 2
-  :titlesonly:
-  :hidden:
+..  client-libs.rst
+.. toctree options
+..  :maxdepth: 2
+..  :titlesonly:
+..  :hidden:
 
 ..  ref/index
 

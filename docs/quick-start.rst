@@ -34,7 +34,7 @@ Then install the package dependencies like this:
     % cd <path-to-your-app>
     % npm install
 
-Next we define the API. This is where the magic is. Create a file called HelloService.js:
+Next we define the API. Create a file called HelloService.js:
 
 ..  code-block:: sh
 
@@ -87,4 +87,3 @@ You now have a RESTful web service running on port 8888.
 
  % curl localhost:8888/hello
  { "msg": "Hello world!" }
- %
