@@ -1,0 +1,104 @@
+#!/usr/bin/env python
+
+from __future__ import (
+    division,
+    unicode_literals,
+    print_function,
+    absolute_import
+)
+
+import subprocess
+import argparse
+import logging
+import shlex
+import sys
+import os
+
+SCRIPT_HOME = os.path.dirname(os.path.abspath(__file__))
+
+PATH_BLACKLIST = [
+    'node_modules',
+    '.git',
+    ['docs', '_build'],
+    'code-frags'
+]
+
+IGNORE_MODULES = [
+    'carbon-core'
+]
+
+INDEX_RST = '''.. _carbon-io-class-ref:
+
+===============
+Class Reference
+===============
+
+.. toctree::
+    :maxdepth: 1
+
+'''
+
+def exists_in_submodule_path(dirpath):
+    if not os.path.exists(dirpath):
+        return False
+    parts = dirpath.split(os.path.sep)
+    for subpath in PATH_BLACKLIST:
+        subpath = [subpath] if not isinstance(subpath, list) else subpath
+        for i in xrange(len(parts)):
+            match = True
+            for j in xrange(len(subpath)):
+                if i+j >= len(parts) or subpath[j] != parts[i+j]:
+                    match = False
+                    break
+            if match:
+                return False
+    return True	
+
+def get_submodule_paths():
+    paths = []
+    for (dirpath,_,_) in os.walk(os.path.abspath(os.path.join(SCRIPT_HOME, '..'))):
+        if exists_in_submodule_path(os.path.join(dirpath, 'package.json')):
+	     paths.append(dirpath)
+    return paths
+	
+def main():
+    global INDEX_RST
+    parser = \
+        argparse.ArgumentParser(description='generate all documentation for carbon-io and its submodules')
+
+    parser.add_argument('-v', '--verbose', action='store_true', help='log debug output')
+
+    opts = parser.parse_args(sys.argv[1:])
+
+    logging.basicConfig(level=logging.DEBUG if opts.verbose else logging.WARN)
+
+    index_paths = []
+
+    try:
+    	submodule_paths = get_submodule_paths()
+        for submodule_path in submodule_paths:
+            if(submodule_path.split('/')[-1] not in IGNORE_MODULES):
+                logging.info(" changing directory to %s..." % submodule_path)
+                os.chdir(submodule_path)
+                logging.info(" invoking carbon-jsdoc...")
+                return_code = subprocess.call("carbon-jsdoc")
+                if return_code:
+                    break
+                logging.info("Return code: %d\n" % return_code)
+                index_paths.append(os.path.join(os.path.relpath(submodule_path, SCRIPT_HOME),'docs/ref/index'))
+        index_paths.sort(key=lambda x: x.split('/')[-4])
+        
+        for path in index_paths:
+	    INDEX_RST += '    ' + path + '\n'
+        
+        with open(os.path.join(SCRIPT_HOME, '../ref/index.rst'), 'w') as f:
+            f.write(INDEX_RST)
+    
+    except Exception, e:
+        logging.exception(e)
+        return -1
+
+    return 0
+
+if __name__ == '__main__':
+    sys.exit(main())
