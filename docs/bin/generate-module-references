@@ -97,8 +97,8 @@ def main():
                 logging.info("Return code: %d\n" % return_code)
                 index_paths.extend(get_rst_file_paths(os.path.join(submodule_path, 'docs/ref/')))
         
-        index_paths.sort(key=lambda x: x.split('/')[-1])
-        
+        index_paths.sort(key=lambda x: x.split('/')[-1].lower())
+
         for path in index_paths:
 	    INDEX_RST += '    ' + path + '\n'
         
