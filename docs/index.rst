@@ -63,6 +63,13 @@ This documentation is organized into the following sections:
 ..  ref/index
 
 .. toctree::
+  :maxdepth: 2  
+  :titlesonly:
+  :hidden:
+
+  ref/index
+
+.. toctree::
   :hidden:
 
   examples.rst
