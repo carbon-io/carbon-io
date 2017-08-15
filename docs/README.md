@@ -143,7 +143,7 @@ branch will allow you to create a pull request to master.
 % git checkout -b "YOUR_DEV_BRANCH_NAME"
 ```
 
-Make your changes to the documentation by adding or modifying code tags for the carbon-jsdoc (https://github.com/carbon-io/carbon-jsdoc) parser to convert to RST files. Information on tagging correctly can be found at this link: https://github.com/carbon-io/carbon-jsdoc
+Make your changes to the documentation by adding or modifying code tags for the carbon-jsdoc parser to convert to RST files. Information on tagging correctly can be found at this link: https://github.com/carbon-io/carbon-jsdoc
 
 If there are any errors in your tagging, a pre-commit hook that runs carbon-jsdoc will fail and abort the commit. Fix the offending tags until carbon-jsdoc runs without error.
 
