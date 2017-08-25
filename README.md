@@ -59,4 +59,4 @@ Interested in getting started with Carbon.io? [__Check out our detailed document
 
 Interested in contributing to Carbon.io? We love to receive new contributions! There are many ways to contribute, from writing tutorials or blog posts, improving the documentation, submitting bug reports and feature requests or writing code which can be incorporated into Carbon.io itself.
 
-Check out our [CONTRIBUTING.md](/CONTRIBUTING.md) for tips on how to get started!
+Check out our [CONTRIBUTING.md](./CONTRIBUTING.md) for tips on how to get started!
