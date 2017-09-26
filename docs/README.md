@@ -44,6 +44,26 @@ Install the documentation dependencies.
 % pip install -r PROJECT_ROOT/docs/requirements.txt
 ```
 
+Module references are generated automatically from comments written in the code. These are generated 
+by a jsdoc plugin called carbon-jsdoc automatically on each commit. This requires dependencies such as 
+jsdoc and carbon-jsdoc, as well as a pre-commit hook to ensure that documentation is generated and added on each commit, all of which are initialized with a script.
+
+To initialize the documetation generation environment:
+
+From the project root:
+
+```sh
+% ./init-docs-env
+```
+
+You can run the documentation generator manually now by running:
+
+```sh
+% carbon-jsdoc
+```
+
+Documentation for tagging and using carbon-jsdoc can be found here: https://github.com/carbon-io/carbon-jsdoc
+
 ## Run the project
 
 ```sh
