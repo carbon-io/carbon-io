@@ -66,4 +66,19 @@ env/
 scratch
 
 # Docs
-docs/
+docs/*                  # note, npm will *not* ignore README files, so "docs/README" is still included...
+!docs/code-frags
+init-docs-env
+.jsdoc-directories
+
+# git
+.gitmodules
+.gitattributes
+.git-cmds/
+
+# travis
+.travis.yml
+
+# other
+tagging-and-publishing.md
+
