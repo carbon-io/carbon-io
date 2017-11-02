@@ -5,7 +5,7 @@ Introduction
 ============
 
 Carbon.io is an application framework based on Node.js and MongoDB for
-building command line programs, microservices, and APIs.
+building APIs and microservices.
 
 Carbon.io strives to make the simple cases easy and the complex cases
 possible. With Carbon.io you can create simple, database-centric

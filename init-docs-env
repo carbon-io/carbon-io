@@ -1,0 +1,4 @@
+#!/bin/sh
+
+eval "git submodule update --init --recursive"
+eval "cp ./docs/common/carbonio-pre-commit ./.git/hooks/pre-commit"

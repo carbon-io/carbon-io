@@ -12,73 +12,131 @@ isolated Python environments and will use it in our examples below.
 
 ## Steps for setting up a local environment
 
-Clone the repository to a directory of your choice. We'll use `PROJECT_ROOT` in
-our examples. Then change to the `PROJECT_ROOT` directory.
+Clone the repository to a directory of your choice.
 
 ```sh
-% git clone https://github.com/carbon-io/carbon-io PROJECT_ROOT
-% cd PROJECT_ROOT
+$ git clone https://github.com/carbon-io/carbon-io
 ```
 
-Create and activate a new Python environment.
+Go to the root of the project and create and activate a new Python environment.
 
 ```sh
-% virtualenv env
-% source PROJECT_ROOT/env/bin/activate
+$ virtualenv env
+$ source env/bin/activate
 ```
 
-Note: In the example above, the virtualenv is named "env" and resides in the
-project's root directory. It is possible to have this environment reside
-elsewhere - that is left to the developer's discretion.
+Virtual env docs: https://virtualenv.pypa.io/en/stable/
 
 Carbon.io is built on several core components. To include the documentation for
 these components, include the submodules.
 
 ```sh
-% git submodule update --init --recursive
+$ git submodule update --init --recursive
 ```
 
 Install the documentation dependencies.
 
 ```sh
-% pip install -r PROJECT_ROOT/docs/requirements.txt
+$ pip install -r docs/requirements.txt
 ```
 
-## Run the project
+Module references are generated automatically from comments written in the code. These are generated 
+by a jsdoc plugin called carbon-jsdoc automatically on each commit. This requires dependencies such as 
+jsdoc and carbon-jsdoc, as well as a pre-commit hook to ensure that documentation is generated and added on each commit, all of which are initialized with a script.
+
+To initialize the documetation generation environment:
+
+From the project root:
 
 ```sh
-% cd docs
-% make clean && make livehtml
+$ ./init-docs-env
+```
+
+If you are making changes to module reference documentation, you should manually run 
+carbon-jsdoc and then build the docs locally to check for correctness:
+
+```sh
+$ carbon-jsdoc
+```
+
+Documentation for tagging and using carbon-jsdoc can be found here: https://github.com/carbon-io/carbon-jsdoc
+
+## Build the documentation locally
+
+```sh
+$ cd docs
+$ make clean && make livehtml
 
 http://localhost:8000/
 ```
+
+## Example: Making changes to a submodule's documentation and creating a pull request
+
+This example will perform the same modifications as above using the Atom
+project. However, we will instead create our changes in a branch and create a
+pull request.
+
+From the root of the project, change to the `atom/docs` directory and checkout the
+master branch.
+
+```sh
+$ cd docs/packages/carbon-core/docs/packages/atom/docs
+$ git checkout master
+```
+
+Checkout your development branch using the `-b` option. Checking out a separate
+branch will allow you to create a pull request to master.
+
+```sh
+$ git checkout -b "YOUR_DEV_BRANCH_NAME"
+```
+
+Make your changes to the documentation and build the docs to review them locally.
+
+```sh
+$ make clean && make livehtml
+
+http://localhost:8000
+```
+
+Commit your changes WITHOUT tagging and push your development branch.
+
+```sh
+$ git commit -am "commit message"
+$ git push origin YOUR_DEV_BRANCH_NAME
+```
+
+Go to the Atom GitHub repository and [create a pull
+request](https://github.com/carbon-io/atom/compare) to merge your changes into
+the master branch. When your changes are approved a collaborator on the
+repository will merge your changes and update the submodule pointer.
 
 ## Example: Making changes to a submodule's documentation and pushing the changes live
 
 This example demonstrates how to update and push the documentation for the Atom
 project.
 
-From the `PROJECT_ROOT`, change to the `atom/docs` directory.
+From the root of the project, change to the `atom/docs` directory.
 
 ```sh
-% cd PROJECT_ROOT/docs/packages/carbon-core/docs/packages/atom/docs
+$ cd docs/packages/carbon-core/docs/packages/atom/docs
 ```
 
 Checkout the master branch. This will configure Atom to use the remote master
 branch HEAD reference and allow `push` and `pull` commands to work.
 
 ```sh
-% git checkout master
+$ git checkout master
 ```
 
 Make your changes to the documentation and build the docs to review them
 locally. You should build the docs from the Atom `docs` folder.
 
 ```sh
-% pwd
-PROJECT_ROOT/docs/packages/carbon-core/docs/packages/atom/docs
+$ pwd
+docs/packages/carbon-core/docs/packages/atom/docs
 
-% make clean && make livehtml
+$ make clean && make livehtml
 
 http://localhost:8000
 ```
@@ -89,9 +147,9 @@ version number. Commit the changes, create a new tag, and push to master.
 "vMajor.Minor.Patch".**
 
 ```sh
-% git commit -am "commit message"
-% git tag -a "v<tag>" -m "v<tag>"
-% git push --tags origin master
+$ git commit -am "commit message"
+$ git tag -a "v<tag>" -m "v<tag>"
+$ git push --tags origin master
 ```
 
 Now that the changes have been pushed, reset the submodule pointers from the
@@ -100,8 +158,7 @@ script](https://github.com/carbon-io/carbon-io/blob/master/.git-cmds/git-update-
 to work.
 
 ```sh
-% cd PROJECT_ROOT
-% git submodule update --init --recursive
+$ git submodule update --init --recursive
 ```
 
 Run the update script. The script will compare each local submodule's version
@@ -113,72 +170,39 @@ then modify the `carbon-core` `package.json` version, tag and commit the
 package, and push the new tag to master. The script is recursive and will
 continue until the top-level `carbon-io` package is updated.
 
+It is important to note here that when running `git-update-docs`, any changes in 
+the parent directories (directories that contain submodules in their docs/packages directory) 
+above the deepest submodule that is out of date will be pushed, so be sure that those directories 
+are clean before running, or that changes in those directories are meant to be pushed.
+
+From the root of the carbon-io directory:
 ```sh
-% cd PROJECT_ROOT
-% git pull
-% cd .git-cmds
-% ./git-update-docs -v
+$ git pull
+$ cd .git-cmds
+$ ./git-update-docs -v
 ```
 
 When prompted, select 'y' to commit the changes made by the script for each parent submodule.
 
-## Example: Making changes to a submodule's documentation and creating a pull request
-
-This example will perform the same modifications as above using the Atom
-project. However, we will instead create our changes in a branch and create a
-pull request.
-
-From the `PROJECT_ROOT`, change to the `atom/docs` directory and checkout the
-master branch.
-
-```sh
-% cd PROJECT_ROOT/docs/packages/carbon-core/docs/packages/atom/docs
-% git checkout master
-```
-
-Checkout your development branch using the `-b` option. Checking out a separate
-branch will allow you to create a pull request to master.
-
-```sh
-% git checkout -b "YOUR_DEV_BRANCH_NAME"
-```
-
-Make your changes to the documentation and build the docs to review them locally.
-
-```sh
-% make clean && make livehtml
-
-http://localhost:8000
-```
-
-Commit your changes WITHOUT tagging and push your development branch.
-
-```sh
-% git commit -am "commit message"
-% git push origin YOUR_DEV_BRANCH_NAME
-```
-
-Go to the Atom GitHub repository and [create a pull
-request](https://github.com/carbon-io/atom/compare) to merge your changes into
-the master branch. When your changes are approved a collaborator on the
-repository will merge your changes and update the submodule pointer.
-
 ## Example: Making changes to docs-common and pushing the changes live
+
+`docs-common` is a directory that contains all of the shared style sheets, client-side javascript,
+sphinx themes, and other code that are used in the documentation.
 
 This example demonstrates how to update and push changes to the `docs-common`
 repository.
 
-From the `PROJECT_ROOT`, change to the `docs/common` directory.
+From the root of the project, change to the `docs/common` directory.
 
 ```sh
-% cd PROJECT_ROOT/docs/common
+$ cd docs/common
 ```
 
 Checkout the master branch. This will configure `docs-common` to use the remote
 master branch HEAD reference and allow `push` and `pull` commands to work.
 
 ```sh
-% git checkout master
+$ git checkout master
 ```
 
 Make your changes to `docs-common` and build the docs to review them locally.
@@ -186,7 +210,7 @@ Sphinx has difficulty auto-updating CSS files, so you may need to run `make
 clean` after each file change.
 
 ```sh
-% make clean && make livehtml
+$ make clean && make livehtml
 
 http://localhost:8000
 ```
@@ -194,8 +218,8 @@ http://localhost:8000
 Commit your changes and push them to the master branch.
 
 ```sh
-% git commit -am "commit message"
-% git push origin master
+$ git commit -am "commit message"
+$ git push origin master
 ```
 
 Make sure that any changes in your `carbon-io` repository are okay to be
@@ -203,9 +227,10 @@ pushed. The update script will automatically push any changes in your
 `carbon-io` repository. Navigate to the `.git-cmds` folder which contains the
 update command and run the script.
 
+From the root of the project:
 ```sh
-% cd $PROJECT_ROOT/.git-cmds
-% ./git-update-common -v
+$ cd .git-cmds
+$ ./git-update-common -v
 ```
 
 The script will output the package.json with the new version of `carbon-io`.
@@ -214,12 +239,35 @@ You can follow the prompts to push the changes live.
 
 ## Running tests
 
-You can test the project by using `tox`.
+You can test the documentation by using `tox`.
+
+Tox is a generic virtualenv management and test command line tool. Documentation can be 
+found here: http://tox.readthedocs.io/en/latest/index.html
+
 Simply run it in the root directory:
 
 ```sh
-% tox
+$ tox
 ```
+
+## Git commands
+
+There are a number of git commands that reside in the .git-cmds folder at the root of the 
+carbon-io project. These commands are in place to aid in more complicated git processes that 
+are required to keep the documentation versions in lock-step with the software versions.
+
+### git-validate-docs
+
+`git-validate-docs` will check each submodule's version against the version specified in the parent module's 
+package.json file. It then reports which submodules have an out of date version.
+
+### git-update-docs
+
+`git-update-docs` will find each out of date submodule (in the same exact way that `git-validate-docs` does), and 
+upon finding an out of date submodule, it will pull in the latest tag. After this, it will walk back up the parent 
+submodules in the tree to the root, starting at the deepest parent submodule above the deepest out of date submodule found, and 
+bump the version and push back to the remote. This is done in order to update the parent submodules' pointers to their child 
+submodules.
 
 ## Building Documentation for Development and Production
 
