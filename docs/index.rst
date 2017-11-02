@@ -20,9 +20,9 @@ This documentation is organized into the following sections:
 .. :ref:`Client libraries <carbon-client-lib-docs>`
 ..  Client libraries used for Carbon.io.
 
-.. :ref:`Module reference <carbon-io-class-ref>`
-..   Module reference for all functions, and classes that comprise
-..   Carbon.io. 
+:ref:`Module reference <carbon-io-class-ref>`
+  Module reference for all functions, and classes that comprise
+  Carbon.io. 
   
 :ref:`Examples <carbon-io-examples>`
   Working examples using Carbon.io. 
@@ -53,14 +53,14 @@ This documentation is organized into the following sections:
   :maxdepth: 1
   :titlesonly:
   :hidden:
+  
+  ref/index
 
 ..  client-libs.rst
 .. toctree options
 ..  :maxdepth: 2
 ..  :titlesonly:
 ..  :hidden:
-
-..  ref/index
 
 .. toctree::
   :hidden:

@@ -78,7 +78,7 @@ when building a mircoservice or API, such as:
 Carbon.io has a highly declarative and modular style that is different
 from most application programming frameworks and that is quite fun to
 code in and easy to learn. We recommend starting with the :ref:`quick
-start guide <Quick start>` and then trying out some of the many
+start guide <carbon-io-quick-start>` and then trying out some of the many
 examples in our :ref:`examples <examples-label>` section. Then dive
-into the :ref:`server guide <Server guide (Carbond)>` to learn more
+into the :ref:`server guide <carbond-server-guide>` to learn more
 advanced concepts.
