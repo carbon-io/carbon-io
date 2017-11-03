@@ -5,7 +5,7 @@ Carbon.io Documentation
 This documentation is organized into the following sections:
 
 :ref:`Introduction <carbon-io-intro>`
-  A short high-level description of what the Carbon.io framework is. 
+  A short high-level description of what the Carbon.io framework is.
 
 :ref:`Quick start <carbon-io-quick-start>`
   A short step-by-step guide to deploying a Service.
@@ -22,10 +22,10 @@ This documentation is organized into the following sections:
 
 :ref:`Module reference <carbon-io-class-ref>`
   Module reference for all functions, and classes that comprise
-  Carbon.io. 
-  
+  Carbon.io.
+
 :ref:`Examples <carbon-io-examples>`
-  Working examples using Carbon.io. 
+  Working examples using Carbon.io.
 
 :ref:`Support <carbon-io-support>`
   Resources for getting help and reporting bug fixes.
@@ -53,8 +53,11 @@ This documentation is organized into the following sections:
   :maxdepth: 1
   :titlesonly:
   :hidden:
-  
+
   ref/index
+
+.. XXX: note this is explicitly ignored in conf.py at the moment. if you add it back,
+..      uncomment it there as well
 
 ..  client-libs.rst
 .. toctree options
@@ -66,3 +69,8 @@ This documentation is organized into the following sections:
   :hidden:
 
   examples.rst
+
+.. toctree::
+  :hidden:
+
+  support.rst
