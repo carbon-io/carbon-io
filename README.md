@@ -1,7 +1,27 @@
-Carbon.io
-==========
-
-[![Build Status](https://travis-ci.org/carbon-io/carbon-io.svg?branch=master)](https://travis-ci.org/carbon-io/carbon-io)
+<p align="center">
+  <img width="500" src="./carbon-io-dark.png" >
+</p>
+<p align="center">
+  <a href="https://travis-ci.org/carbon-io/carbon-io" >
+    <img alt="Travis build status" src="https://img.shields.io/travis/carbon-io/carbon-io.svg?style=flat-square">
+  </a>
+  
+  <a href="https://www.npmjs.com/package/carbon-io" >
+    <img alt="npm Version" src="https://img.shields.io/npm/v/carbon-io.svg?style=flat-square">
+  </a>
+  
+  <a href="https://www.npmjs.com/package/carbon-io" >
+    <img alt="npm downloads" src="https://img.shields.io/npm/dm/carbon-io.svg?style=flat-square">
+  </a>
+  
+  <a href="https://www.npmjs.com/package/carbon-io" >
+    <img alt="supported node versions" src="https://img.shields.io/node/v/carbon-io.svg?style=flat-square">
+  </a>
+  
+  <a href="./LICENCE.txt" >
+    <img alt="MIT License" src="https://img.shields.io/github/license/carbon-io/carbon-io.svg?style=flat-square">
+  </a>
+</p>
 
 Carbon.io is an application framework based on Node.js and MongoDB for building command line programs, microservices, and APIs.
 
