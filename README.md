@@ -1,6 +1,9 @@
 <p align="center">
-  <img width="500" src="./carbon-io-dark.png" >
+  <a href="https://carbon.io" >
+    <img alt="Carbon.io" src="./carbon-io-dark.png" >
+  </a>
 </p>
+
 <p align="center">
   <a href="https://travis-ci.org/carbon-io/carbon-io" >
     <img alt="Travis build status" src="https://img.shields.io/travis/carbon-io/carbon-io.svg?style=flat-square">
