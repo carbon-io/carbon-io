@@ -14,7 +14,7 @@ designed to let you under the hood and allows you to write highly
 customized APIs much like you would with lower-level libraries such as
 Express.js.
 
-For instance, this example creates a full CRUD API for single MongoDB
+For instance, this example creates a full CRUD API for a single MongoDB
 collection consisting of eight REST operations with 'no code':
 
 .. code-block:: javascript    
@@ -77,7 +77,7 @@ when building a mircoservice or API, such as:
 
 Carbon.io has a highly declarative and modular style that is different
 from most application programming frameworks and that is quite fun to
-code in and easy to learn. We recommend starting with the :ref:`quick
+code in as well as easy to learn. We recommend starting with the :ref:`quick
 start guide <carbon-io-quick-start>` and then trying out some of the many
 examples in our :ref:`examples <carbon-io-examples>` section. Then dive
 into the :ref:`server guide <carbond-server-guide>` to learn more

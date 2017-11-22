@@ -44,7 +44,7 @@ Module references are generated automatically from comments written in the code.
 by a jsdoc plugin called carbon-jsdoc automatically on each commit. This requires dependencies such as 
 jsdoc and carbon-jsdoc, as well as a pre-commit hook to ensure that documentation is generated and added on each commit, all of which are initialized with a script.
 
-To initialize the documetation generation environment:
+To initialize the documentation generation environment:
 
 From the project root:
 
