@@ -10,6 +10,7 @@ Module Reference
     ../packages/carbond/docs/ref/carbond.collections.Collection.rst
     ../packages/carbond/docs/ref/carbond.collections.CollectionOperationConfig.rst
     ../packages/carbond/docs/ref/carbond.collections.FindConfig.rst
+    ../packages/carbond/docs/ref/carbond.collections.FindObjectConfig.rst
     ../packages/carbond/docs/ref/carbond.collections.IdGenerator.rst
     ../packages/carbond/docs/ref/carbond.collections.InsertConfig.rst
     ../packages/carbond/docs/ref/carbond.collections.InsertObjectConfig.rst
@@ -38,6 +39,8 @@ Module Reference
     ../packages/carbond/docs/ref/carbond.OperationParameter.rst
     ../packages/carbond/docs/ref/carbond.OperationResponse.rst
     ../packages/carbond/docs/ref/carbond.ParameterParser.rst
+    ../packages/carbond/docs/ref/carbond.Request.rst
+    ../packages/carbond/docs/ref/carbond.Response.rst
     ../packages/carbond/docs/ref/carbond.security.Acl.rst
     ../packages/carbond/docs/ref/carbond.security.ApiKeyAuthenticator.rst
     ../packages/carbond/docs/ref/carbond.security.Authenticator.rst
@@ -56,6 +59,14 @@ Module Reference
     ../packages/carbond/docs/ref/carbond.SwaggerDescriptorGenerator.rst
     ../packages/carbond/docs/ref/carbond.test.ServiceTest.rst
     ../packages/carbond/docs/ref/carbond.UUIDGenerator.rst
+    ../packages/carbon-core/docs/packages/ejson/docs/ref/ejson.rst
+    ../packages/carbon-core/docs/packages/fibers/docs/ref/fibers.rst
+    ../packages/carbon-core/docs/packages/http-errors/docs/ref/http-errors.HttpError.rst
+    ../packages/carbon-core/docs/packages/http-errors/docs/ref/http-errors.makeHttpErrorClass.rst
     ../packages/carbon-core/docs/packages/leafnode/docs/ref/leafnode.Collection.rst
     ../packages/carbon-core/docs/packages/leafnode/docs/ref/leafnode.Cursor.rst
     ../packages/carbon-core/docs/packages/leafnode/docs/ref/leafnode.DB.rst
+    ../packages/carbon-core/docs/packages/test-tube/docs/ref/test-tube.HttpTest.rst
+    ../packages/carbon-core/docs/packages/test-tube/docs/ref/test-tube.HttpTestHistory.rst
+    ../packages/carbon-core/docs/packages/test-tube/docs/ref/test-tube.Test.rst
+    ../packages/carbon-core/docs/packages/test-tube/docs/ref/test-tube.TestContext.rst
