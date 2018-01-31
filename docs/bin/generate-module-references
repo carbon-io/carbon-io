@@ -53,13 +53,13 @@ def exists_in_submodule_path(dirpath):
                     break
             if match:
                 return False
-    return True	
+    return True 
 
 def get_submodule_paths():
     paths = []
     for (dirpath,_,_) in os.walk(os.path.abspath(os.path.join(SCRIPT_HOME, '..'))):
         if exists_in_submodule_path(os.path.join(dirpath, 'package.json')):
-	     paths.append(dirpath)
+             paths.append(dirpath)
     return paths
 
 def get_rst_file_paths(base_path):
@@ -85,7 +85,7 @@ def main():
     index_paths = []
 
     try:
-    	submodule_paths = get_submodule_paths()
+        submodule_paths = get_submodule_paths()
         for submodule_path in submodule_paths:
             if(submodule_path.split('/')[-1] not in IGNORE_MODULES):
                 logging.info(" changing directory to %s..." % submodule_path)
@@ -100,7 +100,7 @@ def main():
         index_paths.sort(key=lambda x: x.split('/')[-1].lower())
 
         for path in index_paths:
-	    INDEX_RST += '    ' + path + '\n'
+            INDEX_RST += '    ' + path + '\n'
         
         with open(os.path.join(SCRIPT_HOME, '../ref/index.rst'), 'w') as f:
             f.write(INDEX_RST)
