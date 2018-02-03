@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://carbon.io" >
-    <img width="75%" alt="Carbon.io" src="https://carbon-io.github.io/www_carbon_io/images/logo--dark--static.svg" >
+    <img width="50%" alt="Carbon.io" src="https://carbon.io/images/logo--dark--static.svg" >
   </a>
 </p>
 
