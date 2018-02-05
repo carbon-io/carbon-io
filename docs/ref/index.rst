@@ -8,6 +8,7 @@ Module Reference
     :maxdepth: 1
 
     ../packages/carbon-core/docs/packages/atom/docs/ref/atom.rst
+    ../packages/carbon-core/docs/packages/bond/docs/ref/bond.rst
     ../packages/carbond/docs/ref/carbond.collections.Collection.rst
     ../packages/carbond/docs/ref/carbond.collections.CollectionOperationConfig.rst
     ../packages/carbond/docs/ref/carbond.collections.FindConfig.rst
