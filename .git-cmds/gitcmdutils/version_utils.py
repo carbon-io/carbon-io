@@ -101,12 +101,22 @@ def do_checkout(dirpath, branch, merge=False, pull=False):
         merge_cmd = "git merge --no-edit origin %s"  % branch
     os.chdir(dirpath)
     subprocess.call(shlex.split(fetch_cmd))
-    subprocess.call(shlex.split(checkout_cmd))
+    checkout_return_code = subprocess.call(shlex.split(checkout_cmd))
+    # if checkout returns anything other than '0', switch to master (release branch doesn't exist)
+    if checkout_return_code and merge:
+        logging.info("Checking out branch %s FAILED, defaulting to master branch..." % branch)
+        checkout_cmd = "git checkout master"
+        subprocess.call(shlex.split(checkout_cmd))
     if merge:
         subprocess.call(shlex.split(merge_cmd))
     if pull:
         subprocess.call(shlex.split('git pull origin %s' % branch))
     os.chdir(cwd)
+
+def get_target_remote_release_branch(dirpath, latest_matching_tag):
+    parsed_tag = semver.parse(latest_matching_tag)
+    constructed_release_branch = "v%s.%s" % (parsed_tag['major'], parsed_tag['minor'])
+    return constructed_release_branch
 
 def get_out_of_date_submodules(checkout=False):
     out_of_date_submodules = []
@@ -139,8 +149,10 @@ def get_out_of_date_submodules(checkout=False):
                             if checkout:
                                 if has_children(dirpath):
                                     # parent node, will be tagging so fetch and checkout master
-                                    logging.info("Checking out master branch for %s...\n" % name)
-                                    do_checkout(dirpath, 'master', merge=True)
+                                    release_branch = get_target_remote_release_branch(dirpath, latest_matching_tag)
+                                    logging.info("Checking out %s branch for %s...\n" % (release_branch, name))
+                                    logging.info("LATEST MATCHING TAG: %s" % latest_matching_tag)
+                                    do_checkout(dirpath, release_branch, merge=True)
                                 else:
                                     # leaf node, fetch and checkout latest_matching_tag
                                     logging.info("Checking out latest matching tag (%s) for %s...\n" % (latest_matching_tag, name))
