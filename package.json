@@ -22,7 +22,7 @@
     }, 
     "dependencies": {
         "@carbon-io/carbon-core": "0.7.x", 
-        "@carbon-io/carbond": "0.7.x"
+        "@carbon-io/carbond": "0.8.x"
     }, 
     "devDependencies": {
         "tmp": "0.0.x", 
