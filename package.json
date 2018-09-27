@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@carbon-io/carbon-core": "0.7.x",
-    "@carbon-io/carbond": "0.8.x"
+    "@carbon-io/carbond": "git+ssh://git@github.com:carbon-io/carbond.git#request-logging"
   },
   "devDependencies": {
     "tmp": "0.0.x",
