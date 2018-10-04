@@ -39,7 +39,7 @@ When run, this service exposes the following:
 * ``/zipcodes/:id`` (``GET``, ``POST``, ``PUT``, ``DELETE``)
  
 In other use cases you may need a lot of lower-level control over how
-your endpoints are implemented. Carbon.io let's you do this too:
+your endpoints are implemented. Carbon.io lets you do this too:
 
 .. code-block:: javascript    
 
